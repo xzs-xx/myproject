@@ -1,0 +1,147 @@
+#all{
+    width:1200px;
+    margin:0 auto;
+}
+/*------------------------content------------------------*/
+#content{
+    width:100%;
+    padding:20px 0;
+    background: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+}
+/*-----------------*/
+.c_title{
+    width:90%;
+    margin:0 auto;
+    border-bottom:2px solid #c9ac68;
+    font-size: 24px;
+    font-weight: 600;
+    color:#c8ac68;
+    line-height: 50px;
+}
+.c_title span{
+    font-size: 14px;
+    float:right;
+    color: #4b4b4b;
+}
+
+/*----------------------*/
+
+#content table{
+    width:80%;
+    margin:0 auto;
+}
+#content table tr td{
+    /*border:1px solid red;*/
+    height:60px;
+}
+
+#content table tr td:nth-child(1){
+    float: right;
+    text-align: right;
+    line-height: 60px;
+    width:200px;
+}
+#content table tr td:nth-child(1) span{
+    color: #ff0000;
+}
+#content table tr.t_title td:nth-child(1){
+    text-align: left;
+    font-size: 18px;
+    font-weight: 600;
+}
+#content table tr.t_title td:nth-child(1) img{
+    width:25px;
+    height:25px;
+    float:left;
+    margin:16px 10px 0 0;
+}
+
+#content table tr td:nth-child(2){
+    padding-left:20px;
+}
+#content table tr td:nth-child(2) input{
+    width:350px;
+    height:40px;
+    border-radius: 5px;
+    border:1px solid #fae1ce;
+    box-shadow: #c8ac68 0 0 15px 1px inset;
+    text-indent: 1em;
+}
+#content table tr td:nth-child(2) select{
+    width:80px;
+    height:40px;
+    border-radius: 5px;
+    border:1px solid #fae1ce;
+    box-shadow: #c8ac68 0 0 15px 1px inset;
+    text-indent: 0.5em;
+}
+#content table tr td:nth-child(2) select.hangye{
+    width:350px;
+}
+
+#content table tr.tr_img td:nth-child(2){
+    height:200px;
+}
+#content table tr.tr_img td:nth-child(2) div{
+    width:180px;
+    height:180px;
+    border:1px solid #c9ac68;
+    float:left;
+    margin-right:30px;
+}
+#content table tr.tr_img td:nth-child(2) div img{
+    width:100%;
+    height:100%;
+}
+#content table tr.tr_img td:nth-child(2) span{
+    display: block;
+    float:left;
+    width:250px;
+    height:180px;
+    font-size: 14px;
+    position:relative;
+}
+#content table tr.tr_img td:nth-child(2) button{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:120px;
+    height:40px;
+    background: #c9ac68;
+    border:none;
+    color:#fff;
+    font-size: 16px;
+    cursor:pointer;
+    border-radius: 5px;
+}
+#content table tr.tr_img td:nth-child(2) button input{
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    opacity: 0;
+    cursor:pointer;
+}
+#content table tr.xieyi td:nth-child(2) input{
+    width:15px;
+    height:15px;
+    box-shadow: none;
+}
+#content table tr.tijiao td:nth-child(2) button{
+    width:200px;
+    height:50px;
+    background: #d7d7d7;
+    border:none;
+    color:gray;
+    font-size: 22px;
+    cursor:pointer;
+}
+/* ---------------------- */
+.xieyi a:hover{
+	text-decoration:underline;
+}
+
+/*----------------------content_end----------------------*/

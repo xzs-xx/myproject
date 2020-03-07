@@ -1,0 +1,24 @@
+#hideDiv{
+	position: absolute;
+	left:600px;
+	top:220px;
+	width:500px;
+	height:150px;
+	
+	border:solid 1px #87CEEB;
+	background-color: white;
+	text-align: center;
+	
+}
+#div1{
+	position: absolute;
+	top: 30px;
+	left: auto;
+	right: auto;
+}
+.hideDiv{
+	display: none;
+}
+.showDiv{
+	display: inline;
+}

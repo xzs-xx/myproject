@@ -1,0 +1,61 @@
+.head1{
+	width:100%;
+	height:100px;
+	background-color:blue;
+	border-radius: 25pt/25pt;
+}
+
+.head1_parent{
+	float:right;
+	margin-right:10%;
+}
+.head1_children{
+	float:right;
+	margin-right:10%;
+}
+.personal_center{
+	width:30%;
+	float:left;
+	height:200px;
+	margin-top:30px;
+	background:blue;
+}
+.Entertainment_center{
+	width:30%;
+	float:left;
+	height:200px;
+	margin-top:30px;
+	background:blue;
+	margin-left:5%;
+}
+.management_center{
+	width:30%;
+	float:left;
+	height:200px;
+	margin-top:30px;
+	background:blue;
+	margin-left:5%;
+}
+.Sharing_center{
+	width:30%;
+	float:left;
+	height:200px;
+	margin-top:30px;
+	background:blue;
+}
+.Learning_center{
+	width:30%;
+	float:left;
+	height:200px;
+	margin-top:30px;
+	background:blue;
+	margin-left:5%;
+}
+.Creative_center{
+	width:30%;
+	float:left;
+	height:200px;
+	margin-top:30px;
+	background:blue;
+	margin-left:5%;
+}

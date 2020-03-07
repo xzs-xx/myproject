@@ -1,0 +1,45 @@
+
+.tab1 {
+	width: 500px;
+	border-top: #cccccc solid 1px;
+	border-bottom: #cccccc solid 1px;
+	margin: 50px auto 0 auto;
+}
+
+.menu {
+	height: 28px;
+	border-right: #cccccc solid 1px;
+}
+
+.menu li {
+	float: left;
+	width: 99px;
+	text-align: center;
+	line-height: 28px;
+	height: 28px;
+	cursor: pointer;
+	border-left: #cccccc solid 1px;
+	color: #666;
+	font-size: 14px;
+	overflow: hidden;
+	background: #E0E2EB;
+}
+
+.menu li.off {
+	background: #FFFFFF;
+	color: #336699;
+	font-weight: bold;
+}
+
+.menudiv {
+	height: 250px;
+	border-left: #cccccc solid 1px;
+	border-right: #cccccc solid 1px;
+	border-top: 0;
+	background: #fefefe
+}
+
+.menudiv div {
+	padding: 15px;
+	line-height: 28px;
+}

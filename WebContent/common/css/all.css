@@ -1,0 +1,26 @@
+*{
+    margin:0;
+    padding:0;
+}
+html,body{
+    width:100%;
+    min-width:1200px;
+    height:100%;
+    font-family:'微软雅黑';
+    font-size: 16px;
+    background: #fff;
+}
+ul,li{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    cursor:pointer;
+    color:#6b6b6b;
+}
+a:hover{
+    color:#c8ac68;
+}
+input,button,select{
+    outline: none;
+}

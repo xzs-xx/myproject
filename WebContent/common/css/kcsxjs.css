@@ -1,0 +1,217 @@
+
+#all{
+    width:1200px;
+    margin:0 auto;
+}
+/*--------------------------content--------------------------*/
+#condition{
+    width:100%;
+    background: #fff;
+    border-radius: 5px;
+}
+/*-----------------*/
+.fenlei{
+    width:100%;
+    padding:15px 0;
+}
+.weizhi{
+    width:95%;
+    margin:0 auto;
+}
+/* .fenlei table{
+    width:70%;
+    margin:15px 0 15px 60px;
+}
+.fenlei table tr td {
+    width:60px;
+    height:30px;
+    cursor:pointer;
+}
+.fenlei table tr td:hover{
+    color:#c8ac68;
+}
+.fenlei table tr td:nth-child(1):hover{
+    color:#000000 !important;
+}
+.fenlei_on{
+    color:#c8ac68;
+} */
+
+.select {
+	padding: 5px 10px;
+	
+}
+
+.select li {
+	list-style: none;
+	padding: 10px 0 5px 100px
+}
+
+.select dl {
+	zoom: 1;
+	position: relative;
+	line-height: 24px;
+}
+
+.select dl:after {
+	content: " ";
+	display: block;
+	clear: both;
+	height: 0;
+	overflow: hidden
+}
+
+.select dt {
+	width: 100px;
+	margin-bottom: 5px;
+	position: absolute;
+	top: 0;
+	left: -100px;
+	text-align: right;
+	color: black;
+	height: 24px;
+	line-height: 24px;
+	font-size: 12pt;
+}
+
+.select dd {
+	float: left;
+	display: inline;
+	margin: 0 0 5px 30px;
+}
+
+.select a {
+	display: inline-block;
+	/* white-space: nowrap; */
+	height: 24px;
+	padding: 0 10px;
+	text-decoration: none;
+	color: black;
+	border-radius: 2px;
+	font-size: 12pt;	
+}
+
+.select a:hover {
+	color: #c8ac68;
+	background-color: #f3edc2
+}
+
+.select .selected a {
+	color: #fff;
+	background-color: #c8ac68
+}
+
+.select-result dt {
+	font-weight: bold
+}
+
+.select-no {
+	color: #999
+}
+
+.select .select-result a {
+	padding-right: 20px;
+	background: #c8ac68 url("close.gif") right 9px no-repeat
+}
+
+.select .select-result a:hover {
+	background-position: right -15px
+}
+
+/*----------------------*/
+.order{
+    width:100%;
+    height:55px;
+    background: #f0f0f0;
+    padding-top:5px;
+}
+.order ul{
+    width:100%;
+    margin:0 auto;
+}
+.order ul li a{
+    float:left;
+    width:130px;
+    height:50px;
+    line-height: 50px;
+    text-align: center;
+    /*border:1px solid #c8ac68;*/
+    margin-right:10px;
+    background: #c8ac68;
+    color:#fff;
+    font-size: 18px;
+    cursor:pointer;
+    border-radius: 5px;
+}
+.order ul li a:hover{
+	background: #c8ac28;
+}
+.order ul .hyz{
+    float:right !important;
+    margin-right:0;
+}
+
+/*---------------------*/
+.jigou{
+    padding:20px 0;
+}
+.jigou ul{
+    width:90%;
+    margin:0 auto;
+}
+.jigou ul li{
+	border:1px solid #e7e7e7;
+	width:30%;
+	float:left;
+	margin-left:25px;
+	text-align:center;
+	padding:20px 0;
+	margin-bottom:20px;
+}
+.jigou ul li:hover{
+	border-color:#c8ac68;
+}
+.jigou ul li:nth-child(1){
+	margin-left:0 !importent;
+}
+.jigou ul li div{
+    /*border:1px solid red;*/
+    /* height:180px; */
+}
+.jigou ul li div:nth-child(1){
+    /* width:300px; */
+    text-align: center;
+}
+.jigou ul li div:nth-child(1) img{
+    width:250px;
+    height:120px;
+}
+.jigou ul li div:nth-child(2){
+    line-height: 40px;
+    /* width:600px; */
+}
+.jigou ul li div:nth-child(2) p:nth-child(1){
+    font-size: 22px;
+}
+.jigou ul li div:nth-child(2) p:nth-child(2){
+    font-size: 14px;
+}
+.jigou ul li div:nth-child(2) p:nth-child(3){
+    font-size: 16px;
+}
+.jigou ul li div:nth-child(3) a button{
+    width:150px;
+    height:50px;
+    background: #c8ac68;
+    border:none;
+    color:#fff;
+    font-size: 18px;
+    cursor:pointer;
+}
+.jigou ul li div:nth-child(3) a button:hover{
+	 background: #c8ac28;
+}
+/*--------------------------*/
+
+
+/*------------------------content_end-------------------------*/

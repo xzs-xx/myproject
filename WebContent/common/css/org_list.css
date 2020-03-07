@@ -1,0 +1,79 @@
+
+#all{
+    width:1200px;
+    margin:0 auto;
+}
+/*--------------------------content--------------------------*/
+#condition{
+    width:100%;
+    background: #fff;
+    border-radius: 5px;
+}
+/*-----------------*/
+.fenlei{
+    width:100%;
+    padding:15px 0;
+}
+.weizhi{
+    width:95%;
+    margin:0 auto;
+}
+
+/*---------------------*/
+.jigou{
+    padding:20px 0;
+}
+.jigou table{
+    width:90%;
+    margin:0 auto;
+}
+.jigou table tr{
+	border:1px solid #e7e7e7;
+	width:100%;
+	float:left;
+	
+	margin-bottom:20px;
+}
+.jigou table tr:hover{
+	border-color:#c8ac68;
+}
+
+.jigou table tr td:nth-child(1){
+	width:350px;
+	line-height:0;
+}
+.jigou table tr td:nth-child(1) img{
+    width:280px;
+    height:180px;
+}
+.jigou table tr td:nth-child(2){
+    line-height: 40px;
+    width:500px;
+}
+.jigou table tr td:nth-child(2) p:nth-child(1){
+    font-size: 22px;
+}
+.jigou table tr td:nth-child(2) p:nth-child(2){
+    font-size: 14px;
+}
+.jigou table tr td:nth-child(2) p:nth-child(3){
+    font-size: 16px;
+}
+
+.jigou table tr td:nth-child(3) a button{
+    width:150px;
+    height:50px;
+    background: #c8ac68;
+    border:none;
+    color:#fff;
+    font-size: 18px;
+    cursor:pointer;
+    float:right;
+}
+.jigou table tr td:nth-child(3) a button:hover{
+	background: #c8ac28;
+}
+/*--------------------------*/
+
+
+/*------------------------content_end-------------------------*/

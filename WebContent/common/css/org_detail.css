@@ -1,0 +1,201 @@
+#all{
+    width:1200px;
+    margin:0 auto;
+}
+/*--------------------------content--------------------------*/
+#content{
+    width:100%;
+    background: #fff;
+    border-radius: 5px;
+}
+/*-----------------*/
+.c_banner{
+    width:100%;
+    height:200px;
+    padding:15px 0;
+}
+.top_img{
+    width:10%;
+    height:60%;
+    float:left;
+    margin-left:15%;
+    margin-right:20px;
+    margin-top:30px;
+}
+.top_img img{
+    width:100%;
+    height:100%;
+}
+
+.top_box{
+    width:30%;
+    float:left;
+    /*border:1px solid #c8ac68;*/
+    margin-top:13px;
+    /*text-align: center;*/
+}
+.top_box ul{
+    width:100%;
+    /*border:1px solid red;*/
+}
+.top_box ul li:nth-child(1){
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 50px;
+}
+.top_box ul li:nth-child(1) img{
+    width:30px;
+    height:30px;
+}
+.top_box ul li:nth-child(2) span:nth-child(1){
+    color:#c8ac68;
+    font-weight: 600;
+    line-height: 30px;
+}
+.top_box ul li:nth-child(3){
+    line-height: 30px;
+}
+.top_box ul li:nth-child(4) button{
+    width:90px;
+    height:35px;
+    margin-right:3px;
+    margin-top:15px;
+    cursor:pointer;
+    background: #c8ac68;
+    border:none;
+    color:#fff;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/*----------------------*/
+
+.c_nav{
+    width:100%;
+    height:55px;
+    background: #f7f7f7;
+    padding-top:5px;
+}
+.c_nav ul{
+    width:100%;
+    margin:0 auto;
+    padding-left:130px;
+}
+.c_nav ul li{
+    float:left;
+    width:25%;
+    height:50px;
+    line-height: 50px;
+    text-align: center;
+    /*border:1px solid #c8ac68;*/
+    margin-left:1%;
+    background: #c8ac68;
+    color:#fff;
+    font-size: 18px;
+    cursor:pointer;
+    border-radius: 5px;
+}
+.c_nav ul li:hover{
+	background: #c8ac28;
+}
+
+/*-----------------------------*/
+.c_box{
+    width:100%;
+    padding:20px 0;
+}
+/*-----------机构介绍----------*/
+.jieshao{
+    width:90%;
+    margin:0 auto;
+    /*display: none;*/
+    padding:30px 0;
+}
+/* .jieshao div:nth-child(1){
+    width:100%;
+    height:300px;
+}
+.jieshao div:nth-child(1) img{
+    width:100%;
+    height:100%;
+}
+.jieshao div:nth-child(2){
+    text-indent: 2em;
+    line-height: 30px;
+} */
+
+/*-----------机构环境----------*/
+.huanjing{
+    width:90%;
+    margin:0 auto;
+    display: none;
+    padding:30px 0;
+}
+/* .huanjing div{
+    width:100%;
+    height:200px;
+    margin-bottom:10px;
+}
+.huanjing div img{
+    width:100%;
+    height:100%;
+}
+ */
+/*-----------课程信息----------*/
+.kecheng{
+    display: none;
+}
+.kecheng table{
+    width:90%;
+    margin:0 auto;
+    border-collapse:collapse;
+}
+.kecheng table tr td{
+    /*border:1px solid red;*/
+    height:60px;
+    border-bottom:1px dashed #dddddd;
+}
+.kecheng table tr td:nth-child(4){
+	width:120px;
+}
+.kecheng table tr td:nth-child(4) input{
+	width:100%;
+	height:30px;
+	cursor:pointer;
+	border:none;
+	background:#c8ac68;
+	color:#fff;
+	font-size:18px;
+}
+/* .kecheng table tr td:nth-child(1){
+    width:300px;
+    text-align: center;
+}
+.kecheng table tr td:nth-child(1) img{
+    width:250px;
+    height:120px;
+}
+.kecheng table tr td:nth-child(2){
+    line-height: 40px;
+    width:600px;
+}
+.kecheng table tr td:nth-child(2) p:nth-child(1){
+    font-size: 22px;
+}
+.kecheng table tr td:nth-child(2) p:nth-child(2){
+    font-size: 14px;
+}
+.kecheng table tr td:nth-child(2) p:nth-child(3){
+    font-size: 16px;
+}
+.kecheng table tr td:nth-child(3) a button{
+    width:150px;
+    height:50px;
+    background: #c8ac68;
+    border:none;
+    color:#fff;
+    font-size: 18px;
+    cursor:pointer;
+} */
+
+/*------------------------content_end-------------------------*/
