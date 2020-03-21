@@ -1,5 +1,7 @@
 package com.c.controller;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -27,6 +29,7 @@ public class LoginController {
 	public String apply(String username,String password,String email,String tel,String portrait,String pos,
 			HttpServletResponse rep,HttpServletRequest req,HttpSession session){
 		User user = new User();
+		//Date date = new Date();
 		user.setId(10);
 		user.setUsername(username);
 		user.setPassword(password);
