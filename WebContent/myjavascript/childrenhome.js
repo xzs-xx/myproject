@@ -10,3 +10,7 @@ function creative(){
 function sharing(){
 	window.location="sharing_center.do";
 }
+
+function management(){
+	window.location="management_center.do";
+}

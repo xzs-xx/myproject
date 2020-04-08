@@ -8,4 +8,27 @@
 		values
 		(#{id},#{username},#{title},#{text},#{time},#{statu})
 	</insert>
+	<insert id="addCompositiony" parameterType="map">
+		insert into
+		composition
+		values
+		(#{id},#{username},#{title},#{src},#{time},#{statu})
+	</insert>
+	<insert id="addShareImage" parameterType="map">
+		insert into
+		shareimage
+		values
+		(#{id},#{username},#{title},#{src},#{time},#{statu})
+	</insert>
+	<select id="savesharingdiary" parameterType="map" resultType="com.c.etity.Diary">
+		select *
+		from diary
+		where statu=1
+	</select>
+	<insert id="addCommentdiary" parameterType="map">
+		insert into
+		comment
+		values
+		(#{id},#{commentuser},#{commentid},#{commenttext},#{commenttype},#{time})
+	</insert>
 </mapper>

@@ -17,7 +17,7 @@
 	<div id="mid" class="mid">
 		<div class="personal_center" onclick="personal()">个人中心</div>
 		<div class="Entertainment_center" onclick="entertainment()">娱乐中心</div>
-		<div class="management_center">管理中心</div>
+		<div class="management_center" onclick="management()">管理中心</div>
 		<div class="Sharing_center" onclick="sharing()">分享中心</div>
 		<div class="Learning_center">学习中心</div>
 		<div class="Creative_center" onclick="creative()">创意中心</div>

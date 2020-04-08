@@ -1,7 +1,13 @@
 package com.c.service;
 
-import com.c.etity.Diary;
+import java.util.List;
+
+import com.c.etity.*;
 
 public interface SharingService {
 	public String adddiary(Diary diary);
+	public String addCompositiony(Compositiony compositiony);
+	public String addShareImage(ShareImage img);
+	public List<Diary> savesharingdiary();
+	public String addCommentdiary(Comment comment);
 }

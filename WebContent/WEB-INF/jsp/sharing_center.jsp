@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8" />
 <% String path=request.getContextPath(); %>
 <link rel="stylesheet" type="text/css"
 	href="<%=path%>/mycss/sharing_center.css">
@@ -27,7 +27,7 @@
 		</ul>
 		<div id="myTabContent" class="tab-content">
 			<div class="tab-pane fade in active" id="home">
-				<div style="padding: 10px 100px 10px;">
+				<div style="padding: 10px 200px 10px;">
 					<form class="bs-example bs-example-form" role="form" action="adddiary.do" method="post">
 						<div class="input-group">
 							<span class="input-group-addon">题目</span>
@@ -57,36 +57,161 @@
 				</div>
 			</div>
 			<div class="tab-pane fade" id="ios">
-				<div style="padding: 10px 100px 10px;">
-					<form class="bs-example bs-example-form" role="form">
+				<div style="padding: 10px 200px 10px;">
+					<form class="bs-example bs-example-form" role="form" action="composition.do" method="post">
 						<div class="input-group">
 							<span class="input-group-addon">题目</span>
-							<input type="text" class="form-control" placeholder="twitterhandle">
+							<input type="text" class="form-control" placeholder="twitterhandle" id="compositiontitle">
 						</div>
 						<br>
-						<textarea style="width:100%;padding:0px 0px 0px 0px;height:200px;resize:none;" placeholder="twitterhandle"></textarea>
-						<button type="button" class="btn btn-primary">保存日记</button>
+						<textarea id="compositiontext" style="width:100%;padding:0px 0px 0px 0px;height:200px;resize:none;" placeholder="twitterhandle"></textarea>
+						<button type="button" class="btn btn-primary" onclick="compositiononclick()">保存作文</button>
 					</form>
+					<script type="text/javascript">
+						function compositiononclick(){
+							var title = $("#compositiontitle").val();
+							var text = $("#compositiontext").val();
+							$.ajax({
+								type:"post",
+								url:"composition.do",
+								data:{
+									"title":title,
+									"text":text
+								},	
+								success:function(result){  					
+									alert(result);
+								}			
+							}); 
+						}
+					</script>
 				</div>
 			</div>
 			<div class="tab-pane fade" id="putimage">
-				<div style="padding: 10px 100px 10px;">
-					<form class="bs-example bs-example-form" role="form">
+				<div style="padding: 10px 200px 10px;">
+					<form id="imgform" class="bs-example bs-example-form" role="form" action="img.do" method="post" enctype="multipart/form-data">
 						<div class="input-group">
 							<span class="input-group-addon">简要描述图片</span>
-							<input type="text" class="form-control" placeholder="twitterhandle">
+							<input type="text" class="form-control" placeholder="twitterhandle" id="imgtitle" name="imgtitle" class="imgtitle">
 						</div>
 						<div class="form-group">
 							<label for="inputfile">选择图片</label>
-						    <input type="file" id="inputfile">
-						    <p class="help-block">这里是块级帮助文本的实例。</p>
-						    <div>wre</div>
+						    <input type="file" id="file" name="file" class="file">
+						    <img src="" height="200" alt="Image preview area..." title="preview-img" id="imgout">
  						</div>
+ 						<input class="btn btn-primary" type="submit" value="保存图片">
 					</form>
+					<script type="text/javascript">
+						var fileInput = document.getElementById("file");
+						var previewImg = document.getElementById('imgout');
+						fileInput.addEventListener('change', function () {
+						var file = this.files[0];
+						var reader = new FileReader();
+						// 监听reader对象的的onload事件，当图片加载完成时，把base64编码賦值给预览图片
+						reader.addEventListener("load", function () {
+						      previewImg.src = reader.result;
+						      }, false);
+						      // 调用reader.readAsDataURL()方法，把图片转成base64
+						      reader.readAsDataURL(file);
+						      //alert(fileout.value);
+						  }, false);
+						
+					</script>
 				</div>
 			</div>
 			<div class="tab-pane fade" id="seeing">
-				111111
+				<ul class="nav nav-pills nav-stacked" style="width:20%;float:left;">
+					<li class="active">
+						<a href="#Diary" data-toggle="tab">
+							<img src="<%=path%>/myimage/日记.jpg" height="20" width="20">
+							日记
+						</a>
+					</li>
+					<li>
+						<a href="#Composition" data-toggle="tab">
+							<img src="<%=path%>/myimage/作文.jpg" height="20" width="20">
+							作文
+						</a>
+					</li>
+					<li>
+						<a href="#ShareImage" data-toggle="tab">
+						<img src="<%=path%>/myimage/日常.jpg" height="20" width="20">
+						日常
+						</a>
+					</li>
+					<li>
+						<a href="#Creative" data-toggle="tab">
+						<img src="<%=path%>/myimage/创作.jpg" height="20" width="20">
+						创作
+						</a>
+					</li>
+				</ul>
+				<div class="tab-content" style="float:left;width:70%;">
+					<div class="tab-pane fade in active" id="Diary">
+						<div>
+							<a href="#" class="btn btn-info btn-lg">
+								<span class="glyphicon glyphicon-arrow-left"></span> 上一个
+							</a>
+							<a href="#" class="btn btn-info btn-lg" style="float:right;" onclick="posonclick()">
+								<span class="glyphicon glyphicon-arrow-right"></span> 下一个
+							</a>
+						</div>
+						<p id="posDiary" align="center">首页，请点击下一个</p>
+						<div class="input-group">
+				            <span class="input-group-addon">输入</span>
+				            <input type="text" class="form-control" id="commentdiary">
+				            <span class="input-group-addon">
+				            	<a onclick="commentdiary()">评论</a>
+				            	<a onclick="commentdiary()">收藏</a>
+				            </span>
+				        </div>
+						<script type="text/javascript">
+							var sharediary_index=-1;
+							function posonclick(){
+								$.ajax({
+									type:"post",
+									url:"sharing_diarysee.do",
+									data:{
+										"sharediary_index":sharediary_index+1
+									},	
+									success:function(result){
+										if(result[0]=="存在下一个"){
+											document.getElementById("posDiary").innerHTML=
+												'<p>姓名:'+result[3]+'<p>'+
+												'<h3 align="center">题目'+result[1]+'</h3>'+
+												'<p align="center">'+result[2]+'<p>';
+												sharediary_index = sharediary_index+1
+										}else{
+											
+										}
+									}			
+								}); 
+							}
+							function commentdiary(){
+								var commentdiary = $("#commentdiary").val();
+								$.ajax({
+									type:"post",
+									url:"commentdiary.do",
+									data:{
+										"sharediary_index":sharediary_index,
+										"commentdiary":commentdiary
+									},	
+									success:function(result){
+										alert(result);
+									}			
+								}); 
+							}
+						</script>
+					</div>
+					<div class="tab-pane fade" id="Composition">
+						作文
+					</div>
+					<div class="tab-pane fade" id="ShareImage">
+						日常
+					</div>
+					<div class="tab-pane fade" id="Creative">
+						创作
+					</div>
+				</div>
 			</div>
 		</div>
 		
