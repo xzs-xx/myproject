@@ -29,38 +29,17 @@ public class Management_centerController {
 	
 	@ResponseBody
 	@RequestMapping("management_nextpage.do")
-	public String[] management_nextpage(HttpServletResponse rep,HttpServletRequest req,HttpSession session) {
+	public String[] management_nextpage(int diaryindex,HttpServletResponse rep,HttpServletRequest req,HttpSession session) {
 		String[] testNext = new String[4];
 		List<Diary> diary = (List<Diary>) session.getAttribute("managementdiarys");
-		int diaryindex = (int) session.getAttribute("diaryindex") + 1;
-		if(diaryindex==diary.size()) {
-			testNext[0] = "最后一页";
+		if(diaryindex>=diary.size() || diaryindex < 0) {
+			testNext[0] = "没有了";
 		}else {
 			if(session.getAttribute("diaryindex") != null) {
 				session.removeAttribute("diaryindex");
 			}
 			session.setAttribute("diaryindex", diaryindex);
 			testNext[0] ="翻到下一页";
-			testNext[1] = diary.get(diaryindex).getTitle();
-			testNext[2] = diary.get(diaryindex).getText().replace("\n", "<br>");
-			testNext[3] = ""+diary.get(diaryindex).getStatu();
-		}
-		return testNext;
-	}
-	@ResponseBody
-	@RequestMapping("management_nextpos.do")
-	public String[] management_nextpos(HttpServletResponse rep,HttpServletRequest req,HttpSession session) {
-		String[] testNext = new String[4];
-		List<Diary> diary = (List<Diary>) session.getAttribute("managementdiarys");
-		int diaryindex = (int) session.getAttribute("diaryindex") - 1;
-		if(diaryindex == -1) {
-			testNext[0] = "第一页";
-		}else {
-			if(session.getAttribute("diaryindex") != null) {
-				session.removeAttribute("diaryindex");
-			}
-			session.setAttribute("diaryindex", diaryindex);
-			testNext[0] = "翻到上一页";
 			testNext[1] = diary.get(diaryindex).getTitle();
 			testNext[2] = diary.get(diaryindex).getText().replace("\n", "<br>");
 			testNext[3] = ""+diary.get(diaryindex).getStatu();

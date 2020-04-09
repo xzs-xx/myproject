@@ -148,7 +148,7 @@
 				<div class="tab-content" style="float:left;width:70%;">
 					<div class="tab-pane fade in active" id="Diary">
 						<div>
-							<a href="#" class="btn btn-info btn-lg">
+							<a href="#" class="btn btn-info btn-lg"  onclick="nextonclick()">
 								<span class="glyphicon glyphicon-arrow-left"></span> 上一个
 							</a>
 							<a href="#" class="btn btn-info btn-lg" style="float:right;" onclick="posonclick()">
@@ -161,11 +161,12 @@
 				            <input type="text" class="form-control" id="commentdiary">
 				            <span class="input-group-addon">
 				            	<a onclick="commentdiary()">评论</a>
-				            	<a onclick="commentdiary()">收藏</a>
+				            	<a onclick="collectiondiary()">收藏</a>
 				            </span>
 				        </div>
 						<script type="text/javascript">
 							var sharediary_index=-1;
+							var diaryid = null;
 							function posonclick(){
 								$.ajax({
 									type:"post",
@@ -179,13 +180,37 @@
 												'<p>姓名:'+result[3]+'<p>'+
 												'<h3 align="center">题目'+result[1]+'</h3>'+
 												'<p align="center">'+result[2]+'<p>';
-												sharediary_index = sharediary_index+1
+												sharediary_index = sharediary_index+1;
+												diaryid = result[4];
 										}else{
 											
 										}
 									}			
 								}); 
 							}
+							
+							function nextonclick(){
+								$.ajax({
+									type:"post",
+									url:"sharing_diarysee.do",
+									data:{
+										"sharediary_index":sharediary_index-1
+									},	
+									success:function(result){
+										if(result[0]=="存在下一个"){
+											document.getElementById("posDiary").innerHTML=
+												'<p>姓名:'+result[3]+'<p>'+
+												'<h3 align="center">题目'+result[1]+'</h3>'+
+												'<p align="center">'+result[2]+'<p>';
+												sharediary_index = sharediary_index-1;
+												diaryid = result[4];
+										}else{
+											
+										}
+									}			
+								}); 
+							}
+							
 							function commentdiary(){
 								var commentdiary = $("#commentdiary").val();
 								$.ajax({
@@ -194,6 +219,20 @@
 									data:{
 										"sharediary_index":sharediary_index,
 										"commentdiary":commentdiary
+									},	
+									success:function(result){
+										alert(result);
+									}			
+								}); 
+							}
+							function collectiondiary(){
+								alert(diaryid);
+								$.ajax({
+									type:"post",
+									url:"collection.do",
+									data:{
+										"collectionid":diaryid,
+										"collectiontype":"diary"
 									},	
 									success:function(result){
 										alert(result);

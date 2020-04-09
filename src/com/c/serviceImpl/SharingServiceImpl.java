@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.c.dao.SharingDao;
+import com.c.etity.Collection;
 import com.c.etity.Comment;
 import com.c.etity.Compositiony;
 import com.c.etity.Diary;
@@ -72,6 +73,26 @@ public class SharingServiceImpl implements SharingService{
 		map.put("time", comment.getTime());
 		sharingDao.addCommentdiary(map);
 		return "";
+	}
+	@Override
+	public String addCollection(Collection collection) {
+		Map<String, Object> map =new HashMap<String, Object>();
+		map.put("id",collection.getId());
+		map.put("collectionuser",collection.getCollectionuser());
+		map.put("collectionid", collection.getCollectionid());
+		map.put("collectiontype", collection.getCollectiontype());
+		map.put("collectiontime", collection.getCollectiontime());
+		sharingDao.addCollection(map);
+		return "";
+	}
+	@Override
+	public int saveCollection(String collectionuser, String collectionid) {
+		Map<String, Object> map =new HashMap<String, Object>();
+		map.put("collectionuser",collectionuser);
+		map.put("collectionid", collectionid);
+		Collection collection = sharingDao.saveCollection(map);
+		if(collection == null)return 0;
+		return 1;
 	}
 	
 	

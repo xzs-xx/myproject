@@ -79,6 +79,7 @@
 						</c:if>
 					</span>
 					<script type="text/javascript">
+						diaryindex = -1;
 						function sharingdiary(statu){
 							$.ajax({
 								type:"post",
@@ -97,11 +98,13 @@
 								type:"post",
 								url:"management_nextpage.do",
 								data:{
+									"diaryindex":diaryindex + 1
 								},	
 								success:function(result){  					
-									if(result[0]=="最后一页"){
-										document.getElementById("changepagediary").innerHTML = '<h3 align="center">最后一页，请点击上一页</h3>';
+									if(result[0]=="没有了"){
+										alert("最后一页，请点击上一页");
 									}else{
+										diaryindex = diaryindex + 1;
 										document.getElementById("changepagediary").innerHTML =
 											'<h3 align="center">题目:'+result[1]+'</h3>'+
 											'<p id="putdiary"  align="center">'+result[2]+'</p>'+
@@ -126,13 +129,15 @@
 						function managementdiaryPos(){
 							$.ajax({
 								type:"post",
-								url:"management_nextpos.do",
+								url:"management_nextpage.do",
 								data:{
+									"diaryindex":diaryindex - 1
 								},	
 								success:function(result){  					
-									if(result[0]=="第一页"){
-										document.getElementById("changepagediary").innerHTML = '<h3 align="center">第一页，请点击下一页</h3>';
+									if(result[0]=="没有了"){
+										alert("首页，请点击下一页");
 									}else{
+										diaryindex = diaryindex - 1;
 										document.getElementById("changepagediary").innerHTML =
 											'<h3 align="center">题目:'+result[1]+'</h3>'+
 											'<p id="putdiary"  align="center">'+result[2]+'</p>'+

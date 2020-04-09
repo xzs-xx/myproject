@@ -10,4 +10,6 @@ public interface SharingService {
 	public String addShareImage(ShareImage img);
 	public List<Diary> savesharingdiary();
 	public String addCommentdiary(Comment comment);
+	public String addCollection(Collection collection);
+	public int saveCollection(String collectionuser, String collectionid);
 }

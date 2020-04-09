@@ -25,10 +25,21 @@
 		from diary
 		where statu=1
 	</select>
+	<insert id="addCollection" parameterType="map">
+		insert into
+		Collection
+		values
+		(#{id},#{collectionuser},#{collectionid},#{collectiontype},#{collectiontime})
+	</insert>
 	<insert id="addCommentdiary" parameterType="map">
 		insert into
 		comment
 		values
 		(#{id},#{commentuser},#{commentid},#{commenttext},#{commenttype},#{time})
 	</insert>
+	<select id="saveCollection" parameterType="map" resultType="com.c.etity.Collection">
+		select *
+		from Collection
+		where collectionuser=#{collectionuser} and collectionid = #{collectionid}
+	</select>
 </mapper>

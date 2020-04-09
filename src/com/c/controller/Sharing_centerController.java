@@ -105,7 +105,7 @@ public class Sharing_centerController {
 	@ResponseBody
 	@RequestMapping("sharing_diarysee.do")
 	public String[] sharing_diarysee(int sharediary_index,HttpServletResponse rep,HttpServletRequest req,HttpSession session) {
-		String[] diaryindexary=new String[4];
+		String[] diaryindexary=new String[5];
 		diaryindexary[0] = "存在下一个";
 		List<Diary> sharingdiary;
 		if(session.getAttribute("sharingdiary")==null) {
@@ -118,6 +118,7 @@ public class Sharing_centerController {
 			diaryindexary[1] = sharingdiary.get(sharediary_index).getTitle();
 			diaryindexary[2] = sharingdiary.get(sharediary_index).getText().replace("\n", "<br>");
 			diaryindexary[3] = sharingdiary.get(sharediary_index).getUsername();
+			diaryindexary[4] = sharingdiary.get(sharediary_index).getId();
 		}else diaryindexary[0]="最后一个";
 		return diaryindexary;
 	}
@@ -143,4 +144,23 @@ public class Sharing_centerController {
 		return "评论成功";
 	}
 
+	@ResponseBody
+	@RequestMapping("collection.do")
+	public String collection(String collectionid, String collectiontype,HttpServletResponse rep,HttpServletRequest req,HttpSession session) {
+		String username = (String) session.getAttribute("username");
+		if(sharingService.saveCollection(username, collectionid)==1) {
+			return "已经收藏过";
+		}else {
+			Collection collection = new Collection();
+			Date time = new Date();
+			String id = ""+time.getTime();
+			collection.setId(id);
+			collection.setCollectionid(collectionid);
+			collection.setCollectiontime(time);
+			collection.setCollectionuser(username);
+			collection.setCollectiontype(collectiontype);
+			sharingService.addCollection(collection);
+			return "收藏成功";
+		}
+	}
 }
