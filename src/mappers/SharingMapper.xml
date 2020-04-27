@@ -42,4 +42,15 @@
 		from Collection
 		where collectionuser=#{collectionuser} and collectionid = #{collectionid}
 	</select>
+	<insert id="addFans" parameterType="map">
+		insert into
+		Fans
+		values
+		(#{id},#{username},#{fansusername})
+	</insert>
+	<select id="saveFans" parameterType="map" resultType="com.c.etity.Fans">
+		select *
+		from Fans
+		where username =#{username} and fansusername = #{fansusername}
+	</select>
 </mapper>

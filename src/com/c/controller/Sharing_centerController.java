@@ -163,4 +163,20 @@ public class Sharing_centerController {
 			return "收藏成功";
 		}
 	}
+
+	@ResponseBody
+	@RequestMapping("fansuser.do")
+	public String fansuser(String username,HttpServletResponse rep,HttpServletRequest req,HttpSession session) {
+		String fansusername = (String) session.getAttribute("username");
+		Fans fans = new Fans();
+		fans.setId(""+new Date().getTime());
+		fans.setFansusername(fansusername);
+		fans.setUsername(username);
+		if(sharingService.saveFans(fans) == 0) {
+			sharingService.addFans(fans);
+		}
+		return "sharing_center";
+	}
+
+
 }

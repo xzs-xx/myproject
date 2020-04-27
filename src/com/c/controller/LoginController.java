@@ -26,6 +26,7 @@ public class LoginController {
 	@RequestMapping("login.do")
 	public String login(String username,String password,HttpServletResponse rep,HttpServletRequest req,HttpSession session){
 		session.setAttribute("username", username);
+		System.out.println(req.getServletContext().getRealPath("/"));
 		return userService.findUser(username,password);
 	}
 	@ResponseBody

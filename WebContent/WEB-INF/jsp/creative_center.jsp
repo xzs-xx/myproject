@@ -35,7 +35,7 @@
 			<div style="height:20px;width:100%;background:red;"></div>
 		</div>
 		<div class="mind_right">
-			<canvas id="imageput" width="400px" height="400px"> <!--宽高写在html里，写在css里有问题-->
+			<canvas id="imageput" width="300px" height="300px"> <!--宽高写在html里，写在css里有问题-->
     		</canvas>
     		<script>
 				var fileInput = document.getElementById("fileout");

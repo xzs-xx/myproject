@@ -12,4 +12,6 @@ public interface SharingService {
 	public String addCommentdiary(Comment comment);
 	public String addCollection(Collection collection);
 	public int saveCollection(String collectionuser, String collectionid);
+	public int addFans(Fans fans);
+	public int saveFans(Fans fans);
 }

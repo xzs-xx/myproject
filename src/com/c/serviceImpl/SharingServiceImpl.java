@@ -11,6 +11,7 @@ import com.c.etity.Collection;
 import com.c.etity.Comment;
 import com.c.etity.Compositiony;
 import com.c.etity.Diary;
+import com.c.etity.Fans;
 import com.c.etity.ShareImage;
 import com.c.service.*;
 
@@ -93,6 +94,24 @@ public class SharingServiceImpl implements SharingService{
 		Collection collection = sharingDao.saveCollection(map);
 		if(collection == null)return 0;
 		return 1;
+	}
+	@Override
+	public int addFans(Fans fans) {
+		Map<String, Object> map =new HashMap<String, Object>();
+		map.put("id", fans.getId());
+		map.put("username", fans.getUsername());
+		map.put("fansusername", fans.getFansusername());
+		return sharingDao.addFans(map);
+	}
+	@Override
+	public int saveFans(Fans fans) {
+		Map<String, Object> map =new HashMap<String, Object>();
+		map.put("id", fans.getId());
+		map.put("username", fans.getUsername());
+		map.put("fansusername", fans.getFansusername());
+		Fans fans1 = sharingDao.saveFans(map);
+		if(fans1!=null)return 1;
+		return 0;
 	}
 	
 	

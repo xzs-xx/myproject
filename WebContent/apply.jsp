@@ -14,48 +14,6 @@
 <meta charset="UTF-8">
 <title>注册</title>
 </head>
-<script type="text/javascript">
-	function apply() {
-		var pos;
-		if (document.getElementById("parents").style.color == "blue") {
-			pos = 3;
-		} else if (document.getElementById("admin").style.color == "blue") {
-			pos = 2;
-		} else
-			pos = 1;
-		//alert($("#password").val());
-		$.ajax({
-			type : "post",
-			url : "apply.do",
-			data : {
-				"username" : $("#username").val(),
-				"password" : $("#password").val(),
-				"email"    : $("#email").val(),
-				"tel"      : $("#tel").val(),
-				"portrait" : null,
-				"pos"      : pos
-			},
-			dataType:"text",
-			success:function(result) {
-				//追加默认还原
-				$("#username").val("");
-				$("#password").val("");
-				if (result == "1") {
-					layer.msg("注册成功"), setTimeout(function() {
-						window.location = "login.jsp";
-					}, 3000);
-				} else {
-					layer.msg(result), setTimeout(function() {
-						window.location = "apply.jsp";
-					}, 3000);
-				}
-			},
-			error:function(error){
-				alert(error);
-			}
-		});
-	}
-</script>
 <body>
 	<div id="head" class="head">
 		<div id="children" class="children" onclick="childrento()">儿童</div>

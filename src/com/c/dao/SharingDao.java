@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.c.etity.Collection;
 import com.c.etity.Diary;
+import com.c.etity.Fans;
 
 public interface SharingDao {
 	public int adddiary(Map<String, Object> map);
@@ -14,4 +15,6 @@ public interface SharingDao {
 	public int addCommentdiary(Map<String, Object> map);
 	public int addCollection(Map<String, Object> map);
 	public Collection saveCollection(Map<String, Object> map);
+	public int addFans(Map<String, Object> map);
+	public Fans saveFans(Map<String, Object> map);
 }

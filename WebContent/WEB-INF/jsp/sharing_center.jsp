@@ -164,9 +164,36 @@
 				            	<a onclick="collectiondiary()">收藏</a>
 				            </span>
 				        </div>
+				        
+				        <!-- 模拟框  -->
+				        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+											&times;
+										</button>
+										<h4 class="modal-title" id="myModalLabel" align="center">
+											关注
+										</h4>
+									</div>
+									<div class="modal-body" id="fansuser">
+										
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+										</button>
+										<button type="button" class="btn btn-primary" onclick="addfans()">
+											确认关注
+										</button>
+									</div>
+								</div><!-- /.modal-content -->
+							</div><!-- /.modal -->
+				        
 						<script type="text/javascript">
 							var sharediary_index=-1;
 							var diaryid = null;
+							var fansuser = null;
 							function posonclick(){
 								$.ajax({
 									type:"post",
@@ -177,11 +204,13 @@
 									success:function(result){
 										if(result[0]=="存在下一个"){
 											document.getElementById("posDiary").innerHTML=
-												'<p>姓名:'+result[3]+'<p>'+
+												'<button data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-lg">姓名:'+result[3]+'</button>'+
 												'<h3 align="center">题目'+result[1]+'</h3>'+
-												'<p align="center">'+result[2]+'<p>';
+												'<p align="center">'+result[2]+'</p>';
 												sharediary_index = sharediary_index+1;
 												diaryid = result[4];
+												fansuser = result[3];
+												document.getElementById("fansuser").innerHTML =  "关注" + result[3];
 										}else{
 											
 										}
@@ -199,11 +228,13 @@
 									success:function(result){
 										if(result[0]=="存在下一个"){
 											document.getElementById("posDiary").innerHTML=
-												'<p>姓名:'+result[3]+'<p>'+
+												'<p data-toggle="modal" data-target="#myModal">姓名:'+result[3]+'</p>'+
 												'<h3 align="center">题目'+result[1]+'</h3>'+
-												'<p align="center">'+result[2]+'<p>';
+												'<p align="center">'+result[2]+'</p>';
 												sharediary_index = sharediary_index-1;
 												diaryid = result[4];
+												fansuser = result[3];
+												document.getElementById("fansuser").innerHTML = "关注"+result[3];
 										}else{
 											
 										}
@@ -226,13 +257,24 @@
 								}); 
 							}
 							function collectiondiary(){
-								alert(diaryid);
 								$.ajax({
 									type:"post",
 									url:"collection.do",
 									data:{
 										"collectionid":diaryid,
 										"collectiontype":"diary"
+									},	
+									success:function(result){
+										alert(result);
+									}			
+								}); 
+							}
+							function addfans(){
+								$.ajax({
+									type:"post",
+									url:"fansuser.do",
+									data:{
+										"username":fansuser
 									},	
 									success:function(result){
 										alert(result);

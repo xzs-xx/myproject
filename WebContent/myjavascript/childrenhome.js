@@ -14,3 +14,6 @@ function sharing(){
 function management(){
 	window.location="management_center.do";
 }
+function study(){
+	window.location="study_center.do";
+}

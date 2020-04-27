@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.c.dao.PersonalDao">
+	<select id="findUserCollection" resultType="com.c.etity.Collection"
+		parameterType="map">
+		select *
+		from Collection
+		where collectionuser = #{username}
+	</select>
+	<select id="findCollectionDiary" resultType="com.c.etity.Diary"
+		parameterType="map">
+		select *
+		from diary
+		where id = #{collectionid} and statu = 1
+	</select>
+	<select id="findFans" resultType="com.c.etity.Fans"
+		parameterType="map">
+		select *
+		from Fans
+		where username = #{username}
+	</select>
+	<select id="findBeFans" resultType="com.c.etity.Fans"
+		parameterType="map">
+		select *
+		from Fans
+		where fansusername = #{fansusername}
+	</select>
+	<select id="findCommunicationsize" resultType="com.c.etity.Communication"
+		parameterType="map">
+		select *
+		from communication
+		where activeusername = #{activeusername} and passiveusername = #{username} and statu = 1;
+	</select>
+	<select id="findCommunication" resultType="com.c.etity.Communication"
+		parameterType="map">
+		select *
+		from communication
+		where (activeusername = #{activeusername} and passiveusername = #{username}) or
+		 	(activeusername = #{username} and passiveusername = #{activeusername})
+	</select>
+	<insert id="addCommunication" parameterType="map">
+		INSERT INTO 
+		communication
+		values
+		(#{id},#{activeusername },#{passiveusername},#{speaktext },#{time},#{statu})
+	</insert>
+</mapper>
