@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8">
+    <title>动态生成SVG圆弧测试</title>
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="150px" width="150px" id="svg-01">
+    </svg>
+    <svg width="200" height="250">
+  <rect x="10" y="10" width="30" height="30" stroke="black" fill="transparent" stroke-width="5"/>
+  <rect x="60" y="10" rx="10" ry="10" width="30" height="30" stroke="black" fill="transparent" stroke-width="5"/>
+
+
+  <circle cx="25" cy="75" r="20" stroke="red" fill="transparent" stroke-width="5"/>
+  <ellipse cx="75" cy="75" rx="20" ry="5" stroke="red" fill="transparent" stroke-width="5"/>
+
+
+  <line x1="10" x2="50" y1="110" y2="150" stroke="orange" fill="transparent" stroke-width="5"/>
+  <polyline points="60 110 65 120 70 115 75 130 80 125 85 140 90 135 95 150 100 145"
+      stroke="orange" fill="transparent" stroke-width="5"/>
+
+
+  <polygon points="50 160 55 180 70 180 60 190 65 205 50 195 35 205 40 190 30 180 45 180"
+      stroke="green" fill="transparent" stroke-width="5"/>
+
+
+  <path d="M20,230 Q40,205 50,230 T90,230" fill="none" stroke="blue" stroke-width="5"/>
+</svg>
+</body>
+<script>
+    function createSVGPath(startX, startY, R, theta, width, color) {
+        var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        var realR = R - width;
+        var dArr = ["M" + startX, startY + width, "A" + realR, realR, 0, theta>=180 ? 1 : 0, 0];
+        var cx = startX, cy = startY + R;
+
+        var theta2 = theta%360;
+        // 避免360度与0度一样的情况
+        theta = theta > 0 && theta2 == 0 ? 359.9 : theta2;
+
+        var alpha = (theta + 90)/180 * Math.PI;
+        var dx = realR * Math.cos(alpha);
+        var dy = realR * Math.sin(alpha);
+        var x = cx + dx, y = cy - dy;
+
+        dArr.push(x.toFixed(2));
+        dArr.push(y.toFixed(2));
+        var d = dArr.join(" ");
+
+        path.setAttribute('d', d);
+        path.setAttribute('stroke', color);
+        path.setAttribute('stroke-width', width);
+        path.setAttribute('fill', 'none');
+
+        return path;
+    }
+
+    var svg = document.getElementById('svg-01');
+    var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'cyan', 'purple', 'black'];
+    for(var i=0; i<6; i++){
+        var startY = i*5;
+        var R = 70 - startY;
+        var theta = 60;
+        var path = createSVGPath(75, startY, R, theta, 5, colors[i]);
+        svg.appendChild(path);
+    }
+</script>
+</html>

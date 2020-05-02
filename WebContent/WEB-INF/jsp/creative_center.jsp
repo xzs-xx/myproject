@@ -6,9 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<%
-	String path = request.getContextPath();
-%>
+<% String path = request.getContextPath();%>
 <link rel="stylesheet" type="text/css"
 	href="<%=path%>/mycss/creative_center.css">
 <link rel="stylesheet"

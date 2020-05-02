@@ -1,61 +1,109 @@
-.head1{
+.bodyall{
+	background-image: url(.././myimage/背景图片主页.jpg);
+	background-repeat: no-repeat;
+	background-size:100% 700px;
+}
+.headstart{
 	width:100%;
-	height:200px;
-	background-color:blue;
-	border-radius: 25pt/25pt;
+	height:50px;
 }
-
-.head1_parent{
+.midstart{
+	float:left;
+	margin-left:10%;
+	width:80%;
+	height:580px;
+	position:absolute;
+	margin-top:10px;
+}
+.rightmid{
+	width:10%;
 	float:right;
-	margin-right:10%;
+	margin-top:10px;
 }
-.head1_children{
+.headmyself{
 	float:right;
-	margin-right:10%;
+	margin-right:5%;
 }
-.personal_center{
-	width:30%;
-	float:left;
-	height:200px;
-	margin-top:30px;
-	background:blue;
+.headparent{
+	float:right;
+	margin-right:5%;
 }
-.Entertainment_center{
-	width:30%;
-	float:left;
-	height:200px;
-	margin-top:30px;
-	background:blue;
-	margin-left:5%;
+.image1{
+	width:27%;
+	position:absolute;
+	top:7%;
+	left:2%;
+	opacity:0.4;
+	filter:alpha(opacity=40);
 }
-.management_center{
-	width:30%;
-	float:left;
-	height:200px;
-	margin-top:30px;
-	background:blue;
-	margin-left:5%;
+.image1:hover
+{
+	opacity:1.0;
+	filter:alpha(opacity=100); /* 适用 IE8 及其更早版本 */
 }
-.Sharing_center{
-	width:30%;
-	float:left;
-	height:200px;
-	margin-top:30px;
-	background:blue;
+.image2{
+	width:27%;
+	position:absolute;
+	top:7%;
+	left:35%;
+	opacity:0.4;
+	filter:alpha(opacity=40);
 }
-.Learning_center{
-	width:30%;
-	float:left;
-	height:200px;
-	margin-top:30px;
-	background:blue;
-	margin-left:5%;
+.image2:hover
+{
+	opacity:1.0;
+	filter:alpha(opacity=100); /* 适用 IE8 及其更早版本 */
 }
-.Creative_center{
-	width:30%;
-	float:left;
-	height:200px;
-	margin-top:30px;
-	background:blue;
-	margin-left:5%;
+.image3{
+	width:27%;
+	position:absolute;
+	top:7%;
+	left:68%;
+	opacity:0.4;
+	filter:alpha(opacity=40);
+}
+.image3:hover
+{
+	opacity:1.0;
+	filter:alpha(opacity=100); /* 适用 IE8 及其更早版本 */
+}
+.image4{
+	width:27%;
+	position:absolute;
+	top:50%;
+	left:2%;
+	opacity:0.4;
+	filter:alpha(opacity=40);
+}
+.image4:hover
+{
+	opacity:1.0;
+	filter:alpha(opacity=100); /* 适用 IE8 及其更早版本 */
+}
+.image5{
+	width:27%;
+	position:absolute;
+	top:50%;
+	left:35%;
+	opacity:0.4;
+	filter:alpha(opacity=40);
+}
+.image5:hover
+{
+	opacity:1.0;
+	filter:alpha(opacity=100); /* 适用 IE8 及其更早版本 */
+}
+.image6{
+	
+	width:27%;
+	position:absolute;
+	top:50%;
+	left:68%;
+	opacity:0.4;
+	filter:alpha(opacity=40);
+}
+.image6:hover
+{
+	opacity:1.0;
+	filter:alpha(opacity=100); /* 适用 IE8 及其更早版本 */
 }

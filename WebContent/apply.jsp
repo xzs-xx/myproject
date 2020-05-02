@@ -3,40 +3,39 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
-
 <html>
 <head>
-<link rel="icon" href="./common/images/favicon.ico" type="image/x-icon">
-<link rel="stylesheet" type="text/css" href="./mycss/apply.css">
-<script src="./common/js/jquery-2.1.4/jquery-1.8.0.min.js"></script>
-<script src="./common/js/jquery-2.1.4/layer/layer.js"></script>
-<script type="text/javascript" src="./myjavascript/apply.js"></script>
 <meta charset="UTF-8">
-<title>注册</title>
+<% String path = request.getContextPath();%>
+<link rel="stylesheet" type="text/css" href="./mycss/apply.css">
+<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+<script type="text/javascript" src="./myjavascript/apply.js"></script>
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>注册页面</title>
 </head>
-<body>
-	<div id="head" class="head">
-		<div id="children" class="children" onclick="childrento()">儿童</div>
-		<div id="admin" class="admin" onclick="admin()">管理员</div>
-		<div id="parents" class="parents" onclick="parents()">家长</div>
-		<form action="apply.do" method="post">
-			<p class="apply1">
-				<input class="username" id="username" type="text" name="username"
-					placeholder="姓名">
-			</p>
-			<p class="apply2">
-				<input class="password" id="password" type="password"
-					name="password" placeholder="密码">
-			</p>
-			<p class="apply3">
-				<input class="email" id="email" type="email" name="email"
-					placeholder="邮箱">
-			</p>
-			<p class="apply4">
-				<input class="tel" id="tel" type="tel" name="tel" placeholder="电话">
-			</p>
-			<p class="apply5"><button type="button" value="立刻注册" onclick="apply()">立刻注册</button></p>
-		</form>
+<body class="bodybackground">
+	<div class="applyframe">
+		<button type="button" id="children" onclick="childrenchange()" class="btn btn-default children"
+			style="background:rgba(255,255,255,0.5);">儿童注册</button>
+		<button type="button" id ="momandfad" onclick="adminchange()" class="btn btn-default momandfad">家长注册</button>
+		<div class="input-group" style="width:80%;margin-top:10%;margin-left:10%">
+            <span class="input-group-addon">用户</span>
+            <input id ="username" type="text" class="form-control" placeholder="用户">
+        </div>
+        <div class="input-group"  style="width:80%;margin-top:10%;margin-left:10%">
+            <span class="input-group-addon">密码</span>
+            <input id ="password" type="password" class="form-control" placeholder="密码">
+        </div>
+        <div class="input-group"  style="width:80%;margin-top:10%;margin-left:10%">
+            <span class="input-group-addon">邮箱</span>
+            <input id ="email" type="text" class="form-control" placeholder="邮箱">
+        </div>
+        <div class="input-group"  style="width:80%;margin-top:10%;margin-left:10%">
+            <span class="input-group-addon">电话</span>
+            <input id = "tel" type="text" class="form-control" placeholder="电话">
+        </div>
+        <button type="button" class="btn btn-primary buttonlogin" onclick="apply()" style="width:80%;margin-top:10%;margin-left:10%">注册</button>
 	</div>
 </body>
 </html>

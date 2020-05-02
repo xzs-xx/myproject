@@ -1,38 +1,24 @@
-.head{
-	margin-left:20%;
-	margin-top:20%;
-	width:200px;
-	height:180px;
+.bodybackground{
+background-image: url(.././myimage/注册界面.jpg);
+width:1000px;
+height:600px;
+background-repeat: no-repeat;
+background-size:100% auto;
+}
+.applyframe{
+	width:400px;
+	height:500px;
+	position:absolute;
+	left:30%;
+	top:10%;
+	background:rgba(255,255,255,0.5);
+}
+.momandfad{
+	width:50%;
+	left:50%;
+	position:absolute;
 }
 .children{
-	float:left;
-	text-align:center;
-	font-size:25px;
-	color: blue;
-}
-.admin{
-	text-align:center;
-	font-size:25px;
-	margin-left:12px;
-	float:left;
-}
-.parents{
-	float:right;
-	text-align:center;
-	font-size:25px;
-}
-.apply1{
-	text-align:center;
-}
-.apply2{
-	text-align:center;
-}
-.apply3{
-	text-align:center;
-}
-.apply4{
-	text-align:center;
-}
-.apply5{
-	text-align:center;
+	width:50%;
+	background-color:rgba(255,255,255,0.5);
 }

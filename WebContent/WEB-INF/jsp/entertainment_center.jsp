@@ -9,6 +9,7 @@
 <%
 	String path = request.getContextPath();
 %>
+<script type="text/javascript" src="<%=path %>/myjavascript/entertainment_center.js"></script>
 <link rel="stylesheet" type="text/css"
 	href="<%=path%>/mycss/entertainment_center.css">
 <link rel="stylesheet"
@@ -17,99 +18,20 @@
 	src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 <script
 	src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
+<title>娱乐选择中心</title>
 </head>
 <body>
-	<div class="head1"></div>
-	<p>
-		<a href="childrenhome.do">首页></a>娱乐中心>
-	</p>
-	<div class="mid">
-		<div class="mid_left" style="width: 30%; float: left;">
-			<ul class="nav nav-pills nav-stacked">
-				<li class="active"><a href="#music" data-toggle="tab">音乐</a></li>
-				<li><a href="#story" tabindex="-1" data-toggle="tab">故事</a></li>
-				<li><a href="#sp" tabindex="-1" data-toggle="tab">视频</a></li>
-			</ul>
+	<div>
+		<div class="entertainmentleft">
+			<img src="<%=path %>/myimage/胡图图.png" class="entertainmenthututu">
 		</div>
-		<div class="mid_right" style="width: 70%; float: left;">
-			<div id="myTabContent" class="tab-content">
-				<div class="tab-pane fade in active" id="music">
-					<div>
-						<c:forEach var="music" items="${musics}">
-							<a
-								onclick="musicchange('<c:out value="${music.srcmusic}"/>','<c:out value="${music.title}"/>','<c:out value="${music.srctext}"/>')">
-								<c:out value="${music.title}" />
-							</a>
-						</c:forEach>
-						<script type="text/javascript">
-							function musicchange(src, name, lrc) {
-								$.ajax({
-									type:"post",
-									url:"entertainment_center_music.do",
-									data:{
-										"musicsrc":src,
-										"musicname":name,
-										"musiclrc":lrc
-									},	
-									success:function(result){  					
-										alert(result);
-										window.location=result;
-									}		
-								});
-							}
-						</script>
-					</div>
-				</div>
-				<div class="tab-pane fade" id="story">
-					<c:forEach var="story" items="${storys}">
-						<p onclick="storychange('<c:out value="${story.storytextsrc}"/>','<c:out value="${story.storyname}"/>')">
-							<c:out value="${story.storyname}"/> 
-						</p>
-					</c:forEach>
-					<script>
-						function storychange(src,storyname){
-							$.ajax({
-								type:"post",
-								url:"entertainment_center_story.do",
-								data:{
-									"storysrc":src,
-									"storyname":storyname,
-								},	
-								success:function(result){  					
-									alert(src);
-									window.location=result;
-								}		
-							});
-						}
-					</script>
-				</div>
-				<div class="tab-pane fade" id="sp">
-					<c:forEach var="video" items="${videos}">
-						<p onclick="videochange('<c:out value="${video.videosrc}"/>','<c:out value="${video.title}"/>')">
-							<c:out value="${video.title}"/> 
-						</p>
-					</c:forEach>
-					<script >
-						function videochange(videosrc,videotitle){
-							$.ajax({
-								type:"post",
-								url:"entertainment_center_video.do",
-								data:{
-									"videosrc":videosrc,
-									"videotitle":videotitle,
-								},	
-								success:function(result){  					
-									alert(result);
-									window.location=result;
-								}		
-							});
-						}
-					</script>
-				</div>
-			</div>
+		<div class="entertainmentmid">
+			<img src="<%=path %>/myimage/娱乐界面.jpg" class="entertainmentmidback">
+			<img src="<%=path %>/myimage/娱乐界面提示.png" class="entertainmentmidTips">
+			<img src="<%=path %>/myimage/音乐透明.png"  class="entertainmentmidMusic">
+			<img src="<%=path %>/myimage/看故事.png" class="entertainmentmidStory">
+			<img src="<%=path %>/myimage/视频播放.png" class="entertainmentmidVideo">
 		</div>
 	</div>
-	<div class="end"></div>
 </body>
 </html>

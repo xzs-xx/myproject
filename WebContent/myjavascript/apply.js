@@ -1,43 +1,30 @@
 var pos = 1;
-function childrento(){
+function childrenchange(){
+	document.getElementById("children").style.background = "rgba(255,255,255,0.5)";
+	document.getElementById("momandfad").style.background = "rgba(255,255,255,1)";
 	pos = 1;
 }
-function admin(){
+function adminchange(){
+	document.getElementById("momandfad").style.background = "rgba(255,255,255,0.5)";
+	document.getElementById("children").style.background = "rgba(255,255,255,1)";
 	pos = 2;
 }
-function parents(){
-	pos = 3;
-}
-function apply() {
-	//alert($("#password").val());
+function apply(){
+	var tf=$("#username").val();
 	$.ajax({
-		type : "post",
-		url : "apply.do",
-		data : {
-			"username" : $("#username").val(),
-			"password" : $("#password").val(),
-			"email"    : $("#email").val(),
-			"tel"      : $("#tel").val(),
-			"portrait" : null,
-			"pos"      : pos
+		type:"post",
+		url:"apply.do",
+		data:{
+			"username":$("#username").val(),
+			"password":$("#password").val(),
+			"email":$("#email").val(),
+			"tel":$("#tel").val(),
+			"portrait":null,
+			"pos":pos
 		},
-		dataType:"text",
-		success:function(result) {
-			//追加默认还原
-			$("#username").val("");
-			$("#password").val("");
-			if (result == "1") {
-				layer.msg("注册成功"), setTimeout(function() {
-					window.location = "login.jsp";
-				}, 3000);
-			} else {
-				layer.msg(result), setTimeout(function() {
-					window.location = "apply.jsp";
-				}, 3000);
-			}
-		},
-		error:function(error){
-			alert(error);
+		success:function(result){ 
+			if(result == 1)alert("注册成功");
+			window.location="login.jsp";
 		}
-	});
+	}); 
 }

@@ -49,7 +49,7 @@ public class LoginController {
 	@RequestMapping("childrenhome.do")
 	public String loginchildrenhome(HttpServletResponse rep,HttpServletRequest req) {
 		//HttpSession session = req.getSession();
-		return "childrenhome";
+		return "childrenhomechange";
 	}
 	@RequestMapping("try.do")
 	public String trydo(MultipartFile file,HttpServletRequest req) {
