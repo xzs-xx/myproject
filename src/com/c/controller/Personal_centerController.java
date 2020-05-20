@@ -43,24 +43,22 @@ public class Personal_centerController {
 	}
 	@ResponseBody
 	@RequestMapping("seeusercollection.do")
-	public String[] seeusercollection(int collectionindex, HttpServletResponse rep,HttpServletRequest req,HttpSession session) {
-		String result[] = new String[6];
-		result[0] = "没有了";
-		List<Collection> usercollection = (List<Collection>) session.getAttribute("usercollection");
-		if(collectionindex>=0&&collectionindex<usercollection.size()) {
-			if(usercollection.get(collectionindex).getCollectiontype().equals("diary")) {
-				Diary diary = personalService.findCollectionDiary(usercollection.get(collectionindex).getCollectionid());
-				if(diary != null) {
-					result[0] = "成功";
-					result[1] = diary.getTitle();
-					result[2] = diary.getText().replace("\n", "<br>");
-					result[3] = diary.getUsername();
-					result[4] = "diary";
-				}
-			}
-		}
-		return result;
+	public Diary seeusercollection(String id, HttpServletResponse rep,HttpServletRequest req,HttpSession session) {
+		return personalService.findCollectionDiary(id);
 	}
+	
+	@ResponseBody
+	@RequestMapping("seeusercollectioncomposition.do")
+	public Composition seeusercollectioncomposition(String id, HttpServletResponse rep,HttpServletRequest req,HttpSession session) {
+		return personalService.findCollectionComposition(id);
+	}
+	
+	@ResponseBody
+	@RequestMapping("seeusercollectionimage.do")
+	public ShareImage seeusercollectionimage(String id, HttpServletResponse rep,HttpServletRequest req,HttpSession session) {
+		return personalService.findCollectionimage(id);
+	}
+	
 	@ResponseBody
 	@RequestMapping("findCommunicationsize.do")
 	public int findCommunicationsize(String activeusername,HttpServletResponse rep,HttpServletRequest req,HttpSession session) {
@@ -73,9 +71,9 @@ public class Personal_centerController {
 	public List<Communication> findCommunication(String activeusername,HttpServletResponse rep,HttpServletRequest req,HttpSession session) {
 		String username = (String)session.getAttribute("username");
 		List<Communication>  communication = personalService.findCommunication(username, activeusername);
-		
 		return communication;
 	}
+	
 	@ResponseBody
 	@RequestMapping("communicationspeak.do")
 	public String communicationspeak(String communicationtext,String activeusername,HttpServletResponse rep,HttpServletRequest req,HttpSession session) {
@@ -90,6 +88,12 @@ public class Personal_centerController {
 		communication.setTime(time);
 		communication.setStatu(1);
 		personalService.addCommunication(communication);
-		return "";
+		return username;
+	}
+	@ResponseBody
+	@RequestMapping("delcollection.do")
+	public String delcollection(String id) {
+		personalService.delcollection(id);
+		return "personal_center.do";
 	}
 }

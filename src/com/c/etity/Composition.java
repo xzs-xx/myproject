@@ -2,12 +2,12 @@ package com.c.etity;
 
 import java.util.Date;
 
-public class Compositiony {
+public class Composition {
 	private String id;
 	private String username;
 	private String title;
 	private String src;
-	private Date date;
+	private Date time;
 	int statu;
 	public String getId() {
 		return id;
@@ -33,11 +33,11 @@ public class Compositiony {
 	public void setSrc(String src) {
 		this.src = src;
 	}
-	public Date getDate() {
-		return date;
+	public Date getTime() {
+		return time;
 	}
-	public void setDate(Date date) {
-		this.date = date;
+	public void setTime(Date date) {
+		this.time = time;
 	}
 	public int getStatu() {
 		return statu;

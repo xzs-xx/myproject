@@ -29,6 +29,18 @@ public class PersonalServiceImpl implements PersonalService{
 		return personalDao.findCollectionDiary(map);
 	}
 	@Override
+	public Composition findCollectionComposition(String collectionid) {
+		Map<String, Object> map =new HashMap<String, Object>();
+		map.put("collectionid", collectionid);
+		return personalDao.findCollectionComposition(map);
+	}
+	@Override
+	public ShareImage findCollectionimage(String collectionid) {
+		Map<String, Object> map =new HashMap<String, Object>();
+		map.put("collectionid", collectionid);
+		return personalDao.findCollectionimage(map);
+	}
+	@Override
 	public List<Fans> findFans(String username) {
 		Map<String, Object> map =new HashMap<String, Object>();
 		map.put("username", username);
@@ -65,5 +77,13 @@ public class PersonalServiceImpl implements PersonalService{
 		map.put("activeusername", activeusername);
 		return personalDao.findCommunication(map);
 	}
+	@Override
+	public int delcollection(String id) {
+		Map<String, Object> map =new HashMap<String, Object>();
+		map.put("id", id);
+		return personalDao.delcollection(map);
+	}
+	
+	
 	
 }

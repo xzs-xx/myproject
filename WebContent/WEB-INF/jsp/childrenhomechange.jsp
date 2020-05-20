@@ -31,7 +31,7 @@
 					<h1 id = "putchar" style="color:rgba(220,20,60,0.5)"></h1>
 				</div>
 				<div  style="position:absolute;top:100px;width:80%;left:10%;height:480px;">
-					<div class="image1"
+					<div class="image1" onclick="personal()"
 						onmouseout="mOutimg(this,'image1h3')" onmouseover="mOverimage(this,'image1h3')">
 				   		<img src="<%=path %>/myimage/个人主页.jpg" width="100%"style="margin-left:10%;margin-top:10%"/>
 				   		<h3 id="image1h3" style="display:none;position:absolute;top:40%;left:35%;">个人主页</h3>
@@ -41,11 +41,13 @@
 				   		<img src="<%=path %>/myimage/娱乐中心.jpg" width="100%"style="margin-left:10%;margin-top:10%"/>
 				   		<h3 id="image2h3" style="display:none;position:absolute;top:40%;left:35%;">娱乐中心</h3>
 				    </div>
-				    <div class="image3" onmouseout="mOutimg(this,'image3h3')" onmouseover="mOverimage(this,'image3h3')">
+				    <div class="image3" onclick="management()"
+				    	onmouseout="mOutimg(this,'image3h3')" onmouseover="mOverimage(this,'image3h3')">
 				   		<img src="<%=path %>/myimage/管理中心.jpg" width="100%"style="margin-left:10%;margin-top:10%"/>
 				   		<h3 id="image3h3" style="display:none;position:absolute;top:40%;left:35%;">管理中心</h3>
 				    </div>
-				    <div class="image4" onmouseout="mOutimg(this,'image4h3')" onmouseover="mOverimage(this,'image4h3')">
+				    <div class="image4" onclick="sharing()"
+				    	 onmouseout="mOutimg(this,'image4h3')" onmouseover="mOverimage(this,'image4h3')">
 				   		<img src="<%=path %>/myimage/分享中心.jpg" width="100%"style="margin-left:10%;margin-top:10%"/>
 				   		<h3 id="image4h3" style="display:none;position:absolute;top:40%;left:35%;">分享中心.</h3>
 				    </div>

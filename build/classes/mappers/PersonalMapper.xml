@@ -14,6 +14,18 @@
 		from diary
 		where id = #{collectionid} and statu = 1
 	</select>
+	<select id="findCollectionComposition" resultType="com.c.etity.Composition"
+		parameterType="map">
+		select *
+		from Composition
+		where id = #{collectionid} and statu = 1
+	</select>
+	<select id="findCollectionimage" resultType="com.c.etity.ShareImage"
+		parameterType="map">
+		select *
+		from shareimage
+		where id = #{collectionid} and statu = 1
+	</select>
 	<select id="findFans" resultType="com.c.etity.Fans"
 		parameterType="map">
 		select *
@@ -45,4 +57,9 @@
 		values
 		(#{id},#{activeusername },#{passiveusername},#{speaktext },#{time},#{statu})
 	</insert>
+	<delete id="delcollection" parameterType="map">  
+		delete 
+		from collection
+		where id=#{id}
+	</delete>
 </mapper>

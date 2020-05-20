@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.c.dao.SharingDao;
 import com.c.etity.Collection;
 import com.c.etity.Comment;
-import com.c.etity.Compositiony;
+import com.c.etity.Composition;
 import com.c.etity.Diary;
 import com.c.etity.Fans;
 import com.c.etity.ShareImage;
@@ -33,14 +33,14 @@ public class SharingServiceImpl implements SharingService{
 		return s;
 	}
 	@Override
-	public String addCompositiony(Compositiony compositiony) {
+	public String addCompositiony(Composition compositiony) {
 		String s = "保存失败";
 		Map<String, Object> map =new HashMap<String, Object>();
 		map.put("id", compositiony.getId());
 		map.put("username", compositiony.getUsername());
 		map.put("title", compositiony.getTitle());
 		map.put("src", compositiony.getSrc());
-		map.put("time", compositiony.getDate());
+		map.put("time", compositiony.getTime());
 		map.put("statu", compositiony.getStatu());
 		int i = sharingDao.addCompositiony(map);
 		if(i==1)s = "保存成功";
@@ -64,6 +64,18 @@ public class SharingServiceImpl implements SharingService{
 		return sharingDao.savesharingdiary(map);
 	}
 	@Override
+	public List<Composition> savesharingComposition() {
+		Map<String, Object> map =new HashMap<String, Object>();
+		return sharingDao.savesharingComposition(map);
+	}
+	
+	@Override
+	public List<ShareImage> savesharingImage() {
+		Map<String, Object> map =new HashMap<String, Object>();
+		return sharingDao.savesharingImage(map);
+	}
+	
+	@Override
 	public String addCommentdiary(Comment comment) {
 		Map<String, Object> map =new HashMap<String, Object>();
 		map.put("id", comment.getId());
@@ -75,6 +87,14 @@ public class SharingServiceImpl implements SharingService{
 		sharingDao.addCommentdiary(map);
 		return "";
 	}
+	
+	@Override
+	public List<Comment> findCommentList(String id) {
+		Map<String, Object> map =new HashMap<String, Object>();
+		map.put("commentid", id);
+		return sharingDao.findCommentList(map);
+	}
+	
 	@Override
 	public String addCollection(Collection collection) {
 		Map<String, Object> map =new HashMap<String, Object>();
@@ -113,6 +133,5 @@ public class SharingServiceImpl implements SharingService{
 		if(fans1!=null)return 1;
 		return 0;
 	}
-	
 	
 }

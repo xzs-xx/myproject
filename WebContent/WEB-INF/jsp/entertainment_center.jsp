@@ -28,9 +28,9 @@
 		<div class="entertainmentmid">
 			<img src="<%=path %>/myimage/娱乐界面.jpg" class="entertainmentmidback">
 			<img src="<%=path %>/myimage/娱乐界面提示.png" class="entertainmentmidTips">
-			<img src="<%=path %>/myimage/音乐透明.png"  class="entertainmentmidMusic">
-			<img src="<%=path %>/myimage/看故事.png" class="entertainmentmidStory">
-			<img src="<%=path %>/myimage/视频播放.png" class="entertainmentmidVideo">
+			<img src="<%=path %>/myimage/音乐透明.png"  class="entertainmentmidMusic" onclick="musicgo()">
+			<img src="<%=path %>/myimage/看故事.png" class="entertainmentmidStory" onclick="storygo()">
+			<img src="<%=path %>/myimage/视频播放.png" class="entertainmentmidVideo"  onclick="videogo()">
 		</div>
 	</div>
 </body>

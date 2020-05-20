@@ -27,6 +27,9 @@ public class Sharing_centerController {
 	private SharingService sharingService;
 	@RequestMapping("sharing_center.do")
 	public String Sharing_center(HttpServletResponse rep,HttpServletRequest req) {
+		req.setAttribute("sharingdiarys", sharingService.savesharingdiary());
+		req.setAttribute("compositions", sharingService.savesharingComposition());
+		req.setAttribute("shareimages", sharingService.savesharingImage());
 		return "sharing_center";
 	}
 	@ResponseBody
@@ -36,7 +39,7 @@ public class Sharing_centerController {
 		Date date = new Date();
 		diary.setId(""+date.getTime());
 		diary.setUsername((String) session.getAttribute("username"));
-		diary.setTitle(title);;
+		diary.setTitle(title);
 		diary.setText(text);
 		diary.setTime(date);
 		diary.setStatu(0);
@@ -45,7 +48,7 @@ public class Sharing_centerController {
 	@ResponseBody
 	@RequestMapping("composition.do")
 	public String addComposition(String title,String text,HttpServletResponse rep,HttpServletRequest req,HttpSession session) {
-		Compositiony composition = new Compositiony();
+		Composition composition = new Composition();
 		Date date = new Date();
 		String username = (String) session.getAttribute("username");
 		String id = ""+ date.getTime();
@@ -72,7 +75,7 @@ public class Sharing_centerController {
 //		}catch (Exception e) {
 //		}
 		composition.setSrc("src/" + username + id +".txt");
-		composition.setDate(date);
+		composition.setTime(date);
 		composition.setStatu(0);
 		return sharingService.addCompositiony(composition);
 	}
@@ -102,48 +105,54 @@ public class Sharing_centerController {
 		return sharingService.addShareImage(img);
 	}
 
-	@ResponseBody
-	@RequestMapping("sharing_diarysee.do")
-	public String[] sharing_diarysee(int sharediary_index,HttpServletResponse rep,HttpServletRequest req,HttpSession session) {
-		String[] diaryindexary=new String[5];
-		diaryindexary[0] = "存在下一个";
-		List<Diary> sharingdiary;
-		if(session.getAttribute("sharingdiary")==null) {
-			sharingdiary = sharingService.savesharingdiary();
-			session.setAttribute("sharingdiary", sharingdiary);
-		}else {
-			sharingdiary = (List<Diary>) session.getAttribute("sharingdiary");
-		}
-		if(sharediary_index < sharingdiary.size()&&sharediary_index>-1) {
-			diaryindexary[1] = sharingdiary.get(sharediary_index).getTitle();
-			diaryindexary[2] = sharingdiary.get(sharediary_index).getText().replace("\n", "<br>");
-			diaryindexary[3] = sharingdiary.get(sharediary_index).getUsername();
-			diaryindexary[4] = sharingdiary.get(sharediary_index).getId();
-		}else diaryindexary[0]="最后一个";
-		return diaryindexary;
-	}
 	
+	
+	
+//	@ResponseBody
+//	@RequestMapping("sharing_diarysee.do")
+//	public String[] sharing_diarysee(int sharediary_index,HttpServletResponse rep,HttpServletRequest req,HttpSession session) {
+//		String[] diaryindexary=new String[5];
+//		diaryindexary[0] = "存在下一个";
+//		List<Diary> sharingdiary;
+//		if(session.getAttribute("sharingdiary")==null) {
+//			sharingdiary = sharingService.savesharingdiary();
+//			session.setAttribute("sharingdiary", sharingdiary);
+//		}else {
+//			sharingdiary = (List<Diary>) session.getAttribute("sharingdiary");
+//		}
+//		if(sharediary_index < sharingdiary.size()&&sharediary_index>-1) {
+//			diaryindexary[1] = sharingdiary.get(sharediary_index).getTitle();
+//			diaryindexary[2] = sharingdiary.get(sharediary_index).getText().replace("\n", "<br>");
+//			diaryindexary[3] = sharingdiary.get(sharediary_index).getUsername();
+//			diaryindexary[4] = sharingdiary.get(sharediary_index).getId();
+//		}else diaryindexary[0]="最后一个";
+//		return diaryindexary;
+//	}
+//	
 	@ResponseBody
 	@RequestMapping("commentdiary.do")
-	public String commentdiary(String commentdiary,int sharediary_index,HttpServletResponse rep,HttpServletRequest req,HttpSession session) {
-		List<Diary> sharingdiary;
-		sharingdiary = (List<Diary>) session.getAttribute("sharingdiary");
-		if(sharingdiary == null || sharediary_index>=sharingdiary.size()||sharediary_index<0) {
-			return "评论失败";
-		}else {
+	public String commentdiary(String commentdiary,String cid,String commenttype,
+			HttpServletResponse rep,HttpServletRequest req,HttpSession session) {
 			Date time = new Date();
 			Comment comment= new Comment();
 			comment.setCommenttext(commentdiary);
-			comment.setCommenttype("diary");
-			comment.setCommentuser(sharingdiary.get(sharediary_index).getUsername());
+			comment.setCommenttype(commenttype);
+			comment.setCommentuser((String)session.getAttribute("username"));
 			comment.setId(""+time.getTime());
-			comment.setCommentid(sharingdiary.get(sharediary_index).getId());
+			comment.setCommentid(cid);
 			comment.setTime(time);
 			sharingService.addCommentdiary(comment);
-		}
-		return "评论成功";
+			return "评论成功";
 	}
 
+	@ResponseBody
+	@RequestMapping("allcomment.do")
+	public List<Comment> collection(String id,HttpServletResponse rep,HttpServletRequest req) {
+		return sharingService.findCommentList(id);
+	}
+	
+	
+	
 	@ResponseBody
 	@RequestMapping("collection.do")
 	public String collection(String collectionid, String collectiontype,HttpServletResponse rep,HttpServletRequest req,HttpSession session) {

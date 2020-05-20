@@ -25,6 +25,16 @@
 		from diary
 		where statu=1
 	</select>
+	<select id="savesharingComposition" parameterType="map" resultType="com.c.etity.Composition">
+		select *
+		from composition
+		where statu=1
+	</select>
+	<select id="savesharingImage" parameterType="map" resultType="com.c.etity.ShareImage">
+		select *
+		from shareimage
+		where statu=1
+	</select>
 	<insert id="addCollection" parameterType="map">
 		insert into
 		Collection
@@ -37,6 +47,15 @@
 		values
 		(#{id},#{commentuser},#{commentid},#{commenttext},#{commenttype},#{time})
 	</insert>
+	
+	<select id="findCommentList" parameterType="map"  resultType="com.c.etity.Comment">
+		select *
+		from comment
+		where commentid=#{commentid}
+	</select>
+	
+	
+	
 	<select id="saveCollection" parameterType="map" resultType="com.c.etity.Collection">
 		select *
 		from Collection
