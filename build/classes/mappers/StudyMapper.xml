@@ -6,6 +6,27 @@
 		select *
 		from book
 	</select>
+	<select id="findoneBook" parameterType="map" resultType="com.c.etity.Book">
+		select *
+		from book
+		where id=#{id}
+	</select>
+	<insert id="addnotes" parameterType="map">
+		INSERT INTO 
+		notes
+		values
+		(#{id},#{notesbookname},#{notesbookid},#{notespage},#{notestext},#{notestime})
+	</insert>
+	<select id="findNotes" parameterType="map" resultType="com.c.etity.Notes">
+		select *
+		from notes
+		where notesbookname=#{notesbookname} and  notesbookid=#{notesbookid} and notespage =#{notespage}
+	</select>
+	<delete id="delnotes" parameterType="map">  
+		delete 
+		from notes
+		where id=#{id}
+	</delete>
 </mapper>
 
 

@@ -8,9 +8,32 @@
 		from diary
 		where username=#{username}
 	</select>
+	<select id="findUserComposition" resultType="com.c.etity.Composition"
+		parameterType="map" >
+		select *
+		from Composition
+		where username=#{username}
+	</select>
+	<select id="findUserShareImage" resultType="com.c.etity.ShareImage"
+		parameterType="map" >
+		select *
+		from ShareImage
+		where username=#{username}
+	</select>
 	<update id="updatediarystatu" parameterType="map">
 		update diary
 		set statu=#{statu}
 		where id=#{id}
 	</update>
+	<update id="updatecompositionstatu" parameterType="map">
+		update composition
+		set statu=#{statu}
+		where id=#{id}
+	</update>
+	<update id="updateshareimagestatu" parameterType="map">
+		update shareimage
+		set statu=#{statu}
+		where id=#{id}
+	</update>
+	
 </mapper>

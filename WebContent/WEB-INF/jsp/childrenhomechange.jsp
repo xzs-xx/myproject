@@ -51,11 +51,13 @@
 				   		<img src="<%=path %>/myimage/分享中心.jpg" width="100%"style="margin-left:10%;margin-top:10%"/>
 				   		<h3 id="image4h3" style="display:none;position:absolute;top:40%;left:35%;">分享中心.</h3>
 				    </div>
-				    <div class="image5" onmouseout="mOutimg(this,'image5h3')" onmouseover="mOverimage(this,'image5h3')">
+				    <div class="image5" onclick="study()"
+				    onmouseout="mOutimg(this,'image5h3')" onmouseover="mOverimage(this,'image5h3')">
 				   		<img src="<%=path %>/myimage/学习中心.jpg" width="100%"style="margin-left:10%;margin-top:10%"/>
 				   		<h3 id="image5h3" style="display:none;position:absolute;top:40%;left:35%;">学习中心</h3>
 				    </div>
-				    <div class="image6" onmouseout="mOutimg(this,'image6h3')" onmouseover="mOverimage(this,'image6h3')">
+				    <div class="image6"
+				    	onmouseout="mOutimg(this,'image6h3')" onmouseover="mOverimage(this,'image6h3')">
 				   		<img src="<%=path %>/myimage/创意中心.jpg" width="100%"style="margin-left:10%;margin-top:10%"/>
 				   		<h3 id="image6h3" style="display:none;position:absolute;top:40%;left:35%;">创意中心</h3>
 				    </div>

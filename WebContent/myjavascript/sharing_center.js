@@ -108,12 +108,8 @@ function onclicksharing(str,type){
 	sharingtype = str;
 	commenttype = type;
 	sharingdiary = -1;
-	document.getElementById("sharingtext").innerHTML='<p align="center"  style="font-size:15px;">'+
-	'标题:<span id="diarytitle2">大家好</span>'+
-	'</p>'+
-	'<p align="center"  style="font-size:20px;">'+
-		'<span  id="diarytext">刚换，选择下一页选择阅读</span>'+
-	'</p>';
+	document.getElementById("diarytitle2").innerHTML="欢迎";
+	document.getElementById("diarytext").innerHTML="大家好";
 	document.getElementById('adddiarycomment').innerHTML = "";
 	id = null;
 }
@@ -163,8 +159,8 @@ function ondiary(diaryint){
 		if(commenttype=="diary"){
 			document.getElementById('diaryuser').innerHTML=sharingdiarylist[sharingdiary].username;
 			document.getElementById('diarytitle2').innerHTML="|" +sharingdiarylist[sharingdiary].title +"|";
-			document.getElementById('diarytext').innerHTML=
-				(sharingdiarylist[sharingdiary].text).replace(/&#039;&lt;br&gt;&#039;/g,"<br>");
+			document.getElementById('diarytext').innerHTML = 
+				(sharingdiarylist[sharingdiary].text).replace(/&lt;br&gt;/g,'<br>');
 			id = sharingdiarylist[sharingdiary].id;
 		}else if(commenttype=="composition"){
 			musicArray = new Array();
@@ -271,3 +267,9 @@ function collection(){
 		alert("没有选择作品");
 	}
 }
+
+
+
+
+
+

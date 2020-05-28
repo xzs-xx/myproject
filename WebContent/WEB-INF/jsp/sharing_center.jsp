@@ -109,9 +109,9 @@
 							<p align="center"  style="font-size:15px;">
 								标题:<span id="diarytitle2">大家好</span>
 							</p>
-							<p align="center"  style="font-size:20px;">
-								<span  id="diarytext">刚进来，选择下一页选择阅读</span>
-							</p>
+							<div align="center"  style="font-size:20px;">
+								<div  id="diarytext">刚进来，选择下一页选择阅读</div>
+							</div>
 						</div>
 					</div>
 					<div style="width:30%;float:left;">
