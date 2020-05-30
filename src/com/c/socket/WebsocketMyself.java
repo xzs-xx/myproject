@@ -51,8 +51,8 @@ public class WebsocketMyself {
         System.out.println(message);
         String[] arymessage = message.split("\\|");
         System.out.println();
-        ((Session)userWsSession.get(arymessage[0])).getBasicRemote().sendText(arymessage[0] + ":" + arymessage[1]);
-        	
+        if(userWsSession.get(arymessage[0])!=null)
+        	((Session)userWsSession.get(arymessage[0])).getBasicRemote().sendText(arymessage[1]);
     }
 
     /**

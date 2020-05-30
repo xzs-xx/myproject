@@ -176,6 +176,7 @@ public class Sharing_centerController {
 	@ResponseBody
 	@RequestMapping("fansuser.do")
 	public String fansuser(String username,HttpServletResponse rep,HttpServletRequest req,HttpSession session) {
+		String str = "已经关注";
 		String fansusername = (String) session.getAttribute("username");
 		Fans fans = new Fans();
 		fans.setId(""+new Date().getTime());
@@ -183,8 +184,9 @@ public class Sharing_centerController {
 		fans.setUsername(username);
 		if(sharingService.saveFans(fans) == 0) {
 			sharingService.addFans(fans);
+			str = "关注成功";
 		}
-		return "sharing_center";
+		return str;
 	}
 
 

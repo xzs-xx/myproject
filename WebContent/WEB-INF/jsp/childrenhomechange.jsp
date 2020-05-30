@@ -24,6 +24,11 @@
 			<img src="<%=path %>/myimage/创作.jpg" class="img-circle" width="50px" height="50px">
 		</div>
 	</div>
+	<div style="position:absolute; width:20%;left:10%;top:5%;">
+		<img alt="" src="<%=path %>/myimage/星1.png" width="100%">
+	</div>
+	<div id="bodystars" style="position:absolute;width:1200px; height:500px;">
+	</div>
 	<div>
 		<div class="midstart">
 			<div>
@@ -56,7 +61,7 @@
 				   		<img src="<%=path %>/myimage/学习中心.jpg" width="100%"style="margin-left:10%;margin-top:10%"/>
 				   		<h3 id="image5h3" style="display:none;position:absolute;top:40%;left:35%;">学习中心</h3>
 				    </div>
-				    <div class="image6"
+				    <div class="image6" onclick="creative()"
 				    	onmouseout="mOutimg(this,'image6h3')" onmouseover="mOverimage(this,'image6h3')">
 				   		<img src="<%=path %>/myimage/创意中心.jpg" width="100%"style="margin-left:10%;margin-top:10%"/>
 				   		<h3 id="image6h3" style="display:none;position:absolute;top:40%;left:35%;">创意中心</h3>
@@ -75,5 +80,40 @@
 			</div>
 		</div>
 	</div>
+	<div style="position:absolute;top:50%;width:20%;opacity:0.4;filter:alpha(opacity=40);">
+		<img id="putmoveimage" src="<%=path %>/myimage/超人动图/动漫1.png" width="100%">
+	</div>
 </body>
+<script type="text/javascript">
+var mytimestars;
+function addstart(){
+	var i;
+	for(i = 0;i<100;i++){
+		addstars();
+	}
+	mytimestars = setInterval(removestars,100);
+}
+addstart();
+function removestars(){
+	var starsnum = document.getElementsByClassName("putstars");
+	document.getElementById("bodystars").removeChild(starsnum[Math.floor(Math.random()*starsnum.length - 1)]);
+	addstars();
+}
+function addstars(){
+	document.getElementById("bodystars").innerHTML = 
+		document.getElementById("bodystars").innerHTML +
+		'<div class="putstars"' + 'style="'+
+		'width:'+Math.floor(Math.random()*3) +'%;'+
+		'left:'+ Math.floor(Math.random()*80) + '%;' +
+		'top:' + Math.floor(Math.random()*80) +'%;'+'">'+
+		'<img alt="" src="<%=path %>/myimage/星2.png" width="100%">'+
+		'</div>';
+}
+var numberimage = 1;
+setInterval(moveimage,100);
+function moveimage(){
+	numberimage = (numberimage)%16 + 1;
+	document.getElementById("putmoveimage").src = "<%=path %>/myimage/超人动图/动漫"+ numberimage +".png";
+}
+</script>
 </html>

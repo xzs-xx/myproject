@@ -13,7 +13,7 @@
          {
         	 if ('WebSocket' in window) {
         		alert(111);
-				ws = new WebSocket("ws://localhost:8080/myssm/websocket/123");
+				ws = new WebSocket("ws://localhost:8080/myssm/websocket/1231");
 					} 
                // 打开一个 web socket
                ws.onopen = function(){
@@ -31,11 +31,10 @@
                   alert("连接已关闭..."); 
                };
                ws.onerror = function() {
-            	   alert("错误");
             	};  
             }
          function sendonclick(){
-        	 ws.send("1231|www");
+        	 ws.send("123|你好");
          }
       </script>
 </head>

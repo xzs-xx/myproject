@@ -163,6 +163,7 @@
 		<img src="./myimage/白云对话框.png" class="img-circle" height="80px" style="opacity:0.6;filter:alpha(opacity=60);">
 		<p align="center" style="margin-top:-60px;" id="putspeaktext">评论语句显示</p>
 	</div>
+	
 	<script type="text/javascript" src="<%=path %>/myjavascript/personal_center.js"></script>
 	<c:forEach var="usercollection1" items="${sessionScope.usercollection}" varStatus="status">
 		<script type="text/javascript">
@@ -179,5 +180,8 @@
 <script>
 	initpath("<%=path %>");
 	init();
+	initwebsocket("${sessionScope.username}");
+	setInterval(websocket, 3000);
+	
 </script>
 </html>

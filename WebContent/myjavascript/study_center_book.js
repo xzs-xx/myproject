@@ -90,5 +90,6 @@ function posnext(changepage){
 	}else{
 		putnotes();
 		document.getElementById("putbookimg").src = book.path+book.booksrc + "/" + index + ".jpg";
+		document.getElementById("modal_putbookimg").src = book.path+book.booksrc + "/" + index + ".jpg";
 	}
 }

@@ -97,7 +97,43 @@
 			<div>
 				<div style="font-size:30px;">
 					<div style="width:70%;float:left;">
-						<p>作者><span style="color:blue;" id="diaryuser">没有，选择下一页</span></p>
+					
+						<p data-toggle="modal" data-target="#myModal" onclick="changebodyuserp()"
+						>作者><span style="color:blue;" id="diaryuser">没有，选择下一页</span></p>
+						
+						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+											&times;
+										</button>
+										<h4 class="modal-title" id="myModalLabel">
+											关注
+										</h4>
+									</div>
+									<div class="modal-body">
+										<div id="bodyuserp">
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+										</button>
+										<button type="button" class="btn btn-primary" onclick="addfans()">
+											确认关注
+										</button>
+									</div>
+								</div><!-- /.modal-content -->
+							</div><!-- /.modal -->
+						</div>
+						
+						
+						
+						
+						
+						
+						
+						
 						<div style="width:100%;">
 							<p>
 								<span onclick="ondiary(-1)">上一页</span>

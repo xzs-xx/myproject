@@ -30,8 +30,34 @@
 	</div>
 	<div style="width:600px;height:460px;background-color:rgba(221,160,221,0.4);position:absolute;left:30%;top:20%;">
 		<div style="width:300px;float:left;">
-			<img src="<%=path %><c:out value='${book.booksrc}'/>/1.jpg"
+			<img src="<%=path %><c:out value='${book.booksrc}'/>/1.jpg" data-toggle="modal" data-target="#myModal"
 				id = "putbookimg" class="img-thumbnail" width="300px" height="400px">
+				
+			<!-- 模态框（Modal） -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								&times;
+							</button>
+							<h4 class="modal-title" id="myModalLabel" align="center">
+								放大的页面
+							</h4>
+						</div>
+						<div class="modal-body">
+							<img src="<%=path %><c:out value='${book.booksrc}'/>/1.jpg" id="modal_putbookimg" width="500px">
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+							</button>
+						</div>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal -->
+			</div>
+				
+				
+			
 			<div class="input-group" style="background-color:rgba(221,160,221,0.4);">
 			 	<span class="glyphicon glyphicon-circle-arrow-left" style="font-size: 37px;float:left;"
 			 		onclick="posnext(-1)"> </span>

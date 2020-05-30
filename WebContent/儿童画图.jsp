@@ -40,7 +40,7 @@
 			<svg height="280px" width="280px" >
 				
 				<g transform="translate(0.000000,280.000000) scale(0.100000,-0.100000)"
-					fill="#000000" stroke="none">
+					fill="#000000" stroke="none" id="draw3">
 					<path d="M1335 2602 c-34 -4 -61 -29 -94 -89 -23 -40 -23 -43 -7 -76 9 -19 16
 					-48 16 -63 0 -15 12 -54 27 -86 25 -55 28 -58 62 -58 40 1 82 24 59 33 -9 4
 					-10 8 -2 14 30 21 59 99 59 158 1 63 -7 92 -37 136 -19 29 -38 36 -83 31z m69
@@ -64,6 +64,7 @@
 					-12 -141 0 -149 5 -3 12 -19 16 -36 4 -17 13 -33 20 -35 7 -3 15 -14 18 -24 8
 					-31 54 -36 82 -10 14 13 22 26 20 31 -3 4 -1 9 5 11 15 5 33 162 25 224 -5 39
 					-12 58 -28 69 -29 20 -87 18 -114 -4z"/>
+					
 					
 					<path d="M1116 2260 c-10 -11 -38 -22 -62 -26 -24 -3 -44 -10 -44 -14 0 -5
 					-15 -12 -32 -15 -18 -4 -37 -11 -43 -15 -5 -4 -21 -11 -35 -15 -53 -17 -290
@@ -310,8 +311,8 @@
 	<div style="position:absolute;width:20%;left:80%">
 			<div data-spy="scroll" data-target="#navbar-example" data-offset="0" 
 		 		style="height:550px;overflow:auto; position: relative;">
-				<img src="./myimage/3.jpg" width="100%">
-				<img src="./myimage/4.jpg" width="100%">
+				<img src="./myimage/3.jpg" width="100%" onclick="changedraw('draw3')">
+				<img src="./myimage/4.jpg" width="100%" onclick="changedraw('draw4')">
 			 </div>
 	</div>
 </body>

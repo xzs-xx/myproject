@@ -10,6 +10,7 @@ var shapingshowpage = document.getElementById("shapingshowpage");
 var img_id = "diary_img";
 var showpage_id = "diaryshowpage";
 var date = new Date();
+var fansuser = null;
 document.getElementById("timeshow").innerHTML =
 	date.getFullYear()+"年" + date.getMonth() +"月" + date.getDate() +"日";
 
@@ -111,6 +112,7 @@ function onclicksharing(str,type){
 	document.getElementById("diarytitle2").innerHTML="欢迎";
 	document.getElementById("diarytext").innerHTML="大家好";
 	document.getElementById('adddiarycomment').innerHTML = "";
+	fansuser=null;
 	id = null;
 }
 function onsharing(){
@@ -158,6 +160,7 @@ function ondiary(diaryint){
 	}else{
 		if(commenttype=="diary"){
 			document.getElementById('diaryuser').innerHTML=sharingdiarylist[sharingdiary].username;
+			fansuser=sharingdiarylist[sharingdiary].username;
 			document.getElementById('diarytitle2').innerHTML="|" +sharingdiarylist[sharingdiary].title +"|";
 			document.getElementById('diarytext').innerHTML = 
 				(sharingdiarylist[sharingdiary].text).replace(/&lt;br&gt;/g,'<br>');
@@ -184,6 +187,7 @@ function ondiary(diaryint){
 							}
 
 							document.getElementById('diaryuser').innerHTML=sharingcompositionlist[sharingdiary].username;
+							fansuser=sharingcompositionlist[sharingdiary].username;
 							document.getElementById('diarytitle2').innerHTML="|" +sharingcompositionlist[sharingdiary].title + "|";
 						}
 					}
@@ -199,6 +203,7 @@ function ondiary(diaryint){
 			document.getElementById('diarytext').innerHTML="";
 			document.getElementById('diarytext').innerHTML +="<img height='200px' src='"+ diarypath + shareimagelist[sharingdiary].src +"'>";
 			document.getElementById('diaryuser').innerHTML=shareimagelist[sharingdiary].username;
+			fansuser=shareimagelist[sharingdiary].username;
 			document.getElementById('diarytitle2').innerHTML="|" + shareimagelist[sharingdiary].title + "|";
 		}
 		$.ajax({
@@ -268,8 +273,23 @@ function collection(){
 	}
 }
 
+function addfans(){
+	if(fansuser!=null){
+		$.ajax({
+			type:"post",
+			url:"fansuser.do",
+			data:{
+				"username":fansuser
+			},	
+			success:function(result){
+				alert(result);
+			}			
+		}); 
+	}
+}
 
-
-
+function changebodyuserp(){
+	document.getElementById('bodyuserp').innerHTML = fansuser;
+}
 
 

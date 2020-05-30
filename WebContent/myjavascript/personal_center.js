@@ -1,6 +1,8 @@
 var indexcollection;
 var collectionlist = new Array();
-var path;
+var path = null;
+var ws = null;
+var username = null;
 function initpath(src){
 	path = src;
 }
@@ -172,7 +174,7 @@ function returncommunication(){
 			for(i=0;i<result.length;i++){
 				if(result[i].activeusername==speakname){
 					document.getElementById("communicationput").innerHTML +=
-						"<p align='left'>" + result[i].activeusername + result[i].speaktext + "</p>";
+						"<p align='left'>" + result[i].activeusername + ":" + result[i].speaktext + "</p>";
 				}else{
 					document.getElementById("communicationput").innerHTML +=
 						"<p align='right'>" + result[i].speaktext + ":" + result[i].activeusername + "</p>";
@@ -187,6 +189,7 @@ function setcommunicationname(gospeakname){
 }
 
 function communicationspeak(){
+	ws.send(speakname + "|" + $("#communicationtext").val());
 	$.ajax({
 		type:"post",
 		url:"communicationspeak.do",
@@ -199,7 +202,8 @@ function communicationspeak(){
 				"<p align='right'>" + $("#communicationtext").val() + ":" + result +"</p>";
 			$("#communicationtext").val("");
 		}			
-	}); 
+	});
+	
 }
 
 function delcollection(){
@@ -216,8 +220,26 @@ function delcollection(){
 	}); 
 }
 
-
-
+function initwebsocket(name){
+	username = name;
+	websocket();
+}
+function websocket(){
+	ws = new WebSocket("ws://localhost:8080/myssm/websocket/"+username);
+	ws.onopen = function(){
+	};
+	ws.onclose = function(){
+		 alert("不在线，对方接受不到信息");
+	};
+	ws.onmessage = function (evt) { 
+		var received_msg = evt.data;
+		document.getElementById("communicationput").innerHTML +=
+			"<p align='left'>" +speakname +":" + received_msg + "</p>";
+	};
+	ws.onerror = function() {
+		
+	};
+} 
 
 
 

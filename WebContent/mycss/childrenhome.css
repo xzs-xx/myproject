@@ -107,3 +107,6 @@
 	opacity:1.0;
 	filter:alpha(opacity=100); /* 适用 IE8 及其更早版本 */
 }
+.putstars{
+	position:absolute;
+}
